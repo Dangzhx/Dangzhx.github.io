@@ -69,10 +69,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Leetcode-14-Longest-common-prefix" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Leetcode-21-Merge-Two-Sorted-Lists" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/28/Leetcode-14-Longest-common-prefix/" class="article-date">
-  <time datetime="2017-05-28T06:34:57.000Z" itemprop="datePublished">2017-05-28</time>
+    <a href="/2017/05/28/Leetcode-21-Merge-Two-Sorted-Lists/" class="article-date">
+  <time datetime="2017-05-28T13:51:48.000Z" itemprop="datePublished">2017-05-28</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/28/Leetcode-14-Longest-common-prefix/">Leetcode 14 Longest common prefix</a>
+      <a class="article-title" href="/2017/05/28/Leetcode-21-Merge-Two-Sorted-Lists/">Leetcode-21-Merge Two Sorted Lists</a>
     </h1>
   
 
@@ -91,18 +91,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h3><h2 id="Longest-Common-Prefix"><a href="#Longest-Common-Prefix" class="headerlink" title="Longest Common Prefix"></a><a href="https://leetcode.com/problems/longest-common-prefix/#/description" target="_blank" rel="external">Longest Common Prefix</a></h2><h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><h2 id="题意很好理解，找出字符串数组中的相同的最长前缀，给定许多字符串，找到共同最长前缀，需要用到的是字符串的处理方法。"><a href="#题意很好理解，找出字符串数组中的相同的最长前缀，给定许多字符串，找到共同最长前缀，需要用到的是字符串的处理方法。" class="headerlink" title="题意很好理解，找出字符串数组中的相同的最长前缀，给定许多字符串，找到共同最长前缀，需要用到的是字符串的处理方法。"></a>题意很好理解，找出字符串数组中的相同的最长前缀，给定许多字符串，找到共同最长前缀，需要用到的是字符串的处理方法。</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><h2 id="拿出一个字符串之后，这个字符串可能就是最短，或者不是，那么遍历其他所有的字符串，每一次遍历中都寻找共同的前缀，如若没有，那么结果为空。"><a href="#拿出一个字符串之后，这个字符串可能就是最短，或者不是，那么遍历其他所有的字符串，每一次遍历中都寻找共同的前缀，如若没有，那么结果为空。" class="headerlink" title="拿出一个字符串之后，这个字符串可能就是最短，或者不是，那么遍历其他所有的字符串，每一次遍历中都寻找共同的前缀，如若没有，那么结果为空。"></a>拿出一个字符串之后，这个字符串可能就是最短，或者不是，那么遍历其他所有的字符串，每一次遍历中都寻找共同的前缀，如若没有，那么结果为空。</h2><h3 id="方法总结"><a href="#方法总结" class="headerlink" title="方法总结"></a>方法总结</h3><p>题目较为简单，却走了很多弯路，源于对方法的不熟悉。<br>res.indexOf(String subString)方法，如果subString是res的字串，则返回subString在res中第一个字母的索引，如果不是，则返回-1，因此只要用返回值是为0，那么就是前缀。</p>
-<h2 id="另外，一般使用equals比较两个字符串，返回值为布尔值。"><a href="#另外，一般使用equals比较两个字符串，返回值为布尔值。" class="headerlink" title="另外，一般使用equals比较两个字符串，返回值为布尔值。  "></a>另外，一般使用equals比较两个字符串，返回值为布尔值。  </h2><h3 id="经典代码"><a href="#经典代码" class="headerlink" title="经典代码"></a>经典代码</h3><p>我自己的（拐了半天弯参照别人的，不过思路是没问题的）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">    public String longestCommonPrefix(String[] strs) &#123;</div><div class="line">        if(strs.length==0)&#123;</div><div class="line">			return &quot;&quot;;</div><div class="line">		&#125;</div><div class="line">		String res = strs[0];</div><div class="line">		//第一个错误，要寻找前缀，就不能使用indexOf();</div><div class="line">//		for(int i = 1;i&lt;strs.length;i++)&#123;</div><div class="line">//			while(strs[i].indexOf(res)==-1)&#123;</div><div class="line">//				res = res.substring(0, res.length()-1);</div><div class="line">//			&#125;</div><div class="line">//		&#125;</div><div class="line">		for(int i = 1;i&lt;strs.length;i++)&#123;</div><div class="line">		    while(strs[i].indexOf(res)!=0)&#123;</div><div class="line">		        res = res.substring(0,res.length()-1);</div><div class="line">		    &#125;</div><div class="line">		&#125;</div><div class="line">		return res;</div><div class="line">        </div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
-<p>别人的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public String longestCommonPrefix(String[] strs) &#123;</div><div class="line">    if(strs == null || strs.length == 0)    return &quot;&quot;;</div><div class="line">    String pre = strs[0];</div><div class="line">    int i = 1;</div><div class="line">    while(i &lt; strs.length)&#123;</div><div class="line">        while(strs[i].indexOf(pre) != 0)</div><div class="line">            pre = pre.substring(0,pre.length()-1);</div><div class="line">        i++;</div><div class="line">    &#125;</div><div class="line">    return pre;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>一直写才可以保持手感。</p>
+        <h3 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h3><h2 id="Merge-Two-Sorted-Lists"><a href="#Merge-Two-Sorted-Lists" class="headerlink" title="Merge Two Sorted Lists"></a><a href="https://leetcode.com/problems/merge-two-sorted-lists/#/description" target="_blank" rel="external">Merge Two Sorted Lists</a></h2><h3 id="分析一下"><a href="#分析一下" class="headerlink" title="分析一下"></a>分析一下</h3><p>这个题目比较简单，提交率也非常高，不过做一道是一道。<br>这个题目涉及到一些链表的知识，我们要把两个有序链表进行归并，重新成为一个新的有序链表返回。  </p>
+<h2 id="在这个过程中，我们要做的就是比较两个链表结点的大小，把各个适合大小的结点放到适合的位置。"><a href="#在这个过程中，我们要做的就是比较两个链表结点的大小，把各个适合大小的结点放到适合的位置。" class="headerlink" title="在这个过程中，我们要做的就是比较两个链表结点的大小，把各个适合大小的结点放到适合的位置。  "></a>在这个过程中，我们要做的就是比较两个链表结点的大小，把各个适合大小的结点放到适合的位置。  </h2><h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>指针的移动可能导致nullpointerexception，需要注意处理。</p>
+<h3 id="结果代码"><a href="#结果代码" class="headerlink" title="结果代码"></a>结果代码</h3><p>自己写得代码时间过久，看来光是解题思路并不行，还需要许多的优化地方，比如这道题，简单的题目，需要好好的优化。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">public ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123;</div><div class="line">        if(l1==null&amp;&amp;l2==null)&#123;</div><div class="line">            return null;</div><div class="line">        &#125;</div><div class="line">        if(l2==null)&#123;</div><div class="line">            return l1;</div><div class="line">        &#125;</div><div class="line">        if(l1==null)&#123;</div><div class="line">            return l2;</div><div class="line">        &#125;</div><div class="line">        ListNode res = null;</div><div class="line">        ListNode abc = null;</div><div class="line">        if(l1.val&gt;=l2.val)&#123;</div><div class="line">            res = l2;</div><div class="line">            abc = l2;</div><div class="line">            if(l2.next==null)&#123;</div><div class="line">                res.next = l1;</div><div class="line">                return abc;</div><div class="line">            &#125;</div><div class="line">            //l2 = l2.next;</div><div class="line">            </div><div class="line">        &#125;else&#123;</div><div class="line">            res = l1;</div><div class="line">            abc = l1;</div><div class="line">           // l1 = l1.next;</div><div class="line">            if(l1.next==null)&#123;</div><div class="line">                res.next = l2;</div><div class="line">                return abc;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        while(l1.next!=null||l2.next!=null)&#123;</div><div class="line">            if(l1.next==null&amp;&amp;l2.next!=null)&#123;</div><div class="line">                res.next = l2;</div><div class="line">                return abc;</div><div class="line">            &#125;</div><div class="line">            if(l2.next==null&amp;&amp;l1.next!=null)&#123;</div><div class="line">                res.next = l1;</div><div class="line">                return abc;</div><div class="line">            &#125;</div><div class="line">            if(l1.val&gt;=l2.val)&#123;</div><div class="line">                res.next = l2;</div><div class="line">                res = res.next;</div><div class="line">                l2 = l2.next;</div><div class="line">            &#125;else&#123;</div><div class="line">                res.next = l1;</div><div class="line">                res = res.next;</div><div class="line">                l1 = l1.next;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return abc;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p> 参考下别人的<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">public ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123;</div><div class="line">       if(l1 == null)&#123;</div><div class="line">           return l2;</div><div class="line">       &#125;</div><div class="line">       if(l2 == null)&#123;</div><div class="line">           return l1;</div><div class="line">       &#125;</div><div class="line">       </div><div class="line">       ListNode mergeHead;</div><div class="line">       if(l1.val &lt; l2.val)&#123;</div><div class="line">           mergeHead = l1;</div><div class="line">           mergeHead.next = mergeTwoLists(l1.next, l2);</div><div class="line">       &#125;</div><div class="line">       else&#123;</div><div class="line">           mergeHead = l2;</div><div class="line">           mergeHead.next = mergeTwoLists(l1, l2.next);</div><div class="line">       &#125;</div><div class="line">       return mergeHead;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>递归的每一次返回都是相对于当前情况的最终结果，我们只需要每次利用这个特性，每一次都把该结点的后续作为一个问题求解，得到结果之后进行返回，链接到前面已经得到的结果中，就可以得到最终结果。<br>对于递归的巧妙应用，值得好好学习一下。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://Dangzhx.github.io/2017/05/28/Leetcode-14-Longest-common-prefix/" data-id="cj3a56y010001osw38pb3pnzk" class="article-share-link">Share</a>
+      <a data-url="http://Dangzhx.github.io/2017/05/28/Leetcode-21-Merge-Two-Sorted-Lists/" data-id="cj3btweyt0008o0w3jcrxj0ks" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/等下就优化/">等下就优化</a></li></ul>
 
     </footer>
   </div>
@@ -114,7 +115,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">__('next') &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -127,7 +128,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/等下就优化/">等下就优化</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy  questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/等下就优化/">等下就优化</a></li></ul>
     </div>
   </div>
 
@@ -137,7 +138,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode.</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 20px;">Easy questions of leetcode</a> <a href="/tags/等下就优化/" style="font-size: 10px;">等下就优化</a>
+      <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 10px;">Easy  questions of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode.</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 20px;">Easy questions of leetcode</a> <a href="/tags/等下就优化/" style="font-size: 10px;">等下就优化</a>
     </div>
   </div>
 
@@ -159,6 +160,10 @@
       <ul>
         
           <li>
+            <a href="/2017/05/31/Leetcode-88-Merge-Sorted-Array/">Leetcode 88 Merge Sorted Array</a>
+          </li>
+        
+          <li>
             <a href="/2017/05/29/Leetcode-26-Remove-Duplicates-from-Sorted-Array/">Leetcode 26 Remove Duplicates from Sorted Array</a>
           </li>
         
@@ -172,10 +177,6 @@
         
           <li>
             <a href="/2017/05/28/Leetcode-14-Longest-common-prefix/">Leetcode 14 Longest common prefix</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/27/Leetcode-13-Romantointeger/">Leetcode 13 Roman to integer</a>
           </li>
         
       </ul>
