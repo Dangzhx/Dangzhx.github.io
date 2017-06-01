@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://Dangzhx.github.io/2017/06/01/Leetcode-35-Search-Insert-Position/index.html">
 <meta property="og:site_name" content="零点一光年">
 <meta property="og:description" content="题目来源Search Insert Position题目简析很简单的题目，给定一个有序数组和一个数字，找出该数字应该呆的位置。  结果分析 虽然是很简单的题目，差点又犯罪，一定要想清楚逻辑，坚决不能按照错误例子一个一个解决。   我简单的进行遍历，得出结果，但是时间上比大部分人都要慢，采取的算法不合适。 对，应该使用二分查找，才能更快的得到结果。   代码如下没有用二分查找的，运行时间7ms.12">
-<meta property="og:updated_time" content="2017-06-01T04:14:27.295Z">
+<meta property="og:updated_time" content="2017-06-01T07:22:43.606Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode 35 Search Insert Position">
 <meta name="twitter:description" content="题目来源Search Insert Position题目简析很简单的题目，给定一个有序数组和一个数字，找出该数字应该呆的位置。  结果分析 虽然是很简单的题目，差点又犯罪，一定要想清楚逻辑，坚决不能按照错误例子一个一个解决。   我简单的进行遍历，得出结果，但是时间上比大部分人都要慢，采取的算法不合适。 对，应该使用二分查找，才能更快的得到结果。   代码如下没有用二分查找的，运行时间7ms.12">
@@ -103,7 +103,14 @@
 <p>用了二分查找的,运行时间还是7ms………………<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line">    public int searchInsert(int[] nums, int target) &#123;</div><div class="line">        int low = 0;</div><div class="line">        int high = nums.length;</div><div class="line">        </div><div class="line">        while(low&lt;high)&#123;</div><div class="line">            //mid的位置一定要确定好</div><div class="line">            int mid = low+ (high-low)/2;</div><div class="line">            if(target&gt;nums[mid])&#123;</div><div class="line">                low = mid+1;</div><div class="line">            &#125;</div><div class="line">            else&#123;</div><div class="line">                high = mid;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return low;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>可能是由于测试数据的原因，理论上应该是二分法要快一些。<br>以后这种题目尽量用二分法做吧。</p>
 <hr>
-<p>听从建议，近几天我给这个博客添加一个评论系统。</p>
+<h3 id="题目来源-1"><a href="#题目来源-1" class="headerlink" title="题目来源"></a>题目来源</h3><p><a href="https://leetcode.com/problems/first-bad-version/#/description" target="_blank" rel="external">First Bad Version</a></p>
+<hr>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>今天第二个题目，与上一题相关，同样是可以使用二分查找解决的问题，大体上差不多。<br>只要处理下第一个版本就坏掉的问题即可。</p>
+<hr>
+<h3 id="结果代码"><a href="#结果代码" class="headerlink" title="结果代码"></a>结果代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">public class Solution extends VersionControl &#123;</div><div class="line">    public int firstBadVersion(int n) &#123;</div><div class="line">         if(isBadVersion(1))</div><div class="line">        &#123;</div><div class="line">            return 1;</div><div class="line">        &#125;</div><div class="line">        int low = 1;</div><div class="line">        int high = n;</div><div class="line">       </div><div class="line">        while(low!=high-1)&#123;</div><div class="line">        	//这里出错，中位数的计算。</div><div class="line">            int mid = low + (high-low)/2;</div><div class="line">            if(isBadVersion(mid))&#123;</div><div class="line">                high = mid;</div><div class="line">            &#125;else&#123;</div><div class="line">                low = mid;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return high;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>巩固学习二分查找。</p>
+<hr>
+<p>听从建议，近几天我给这个博客添加一个评论系统。而且我会把同一天的题目先写到一篇博客中。之后进行归档。</p>
 
       
     </div>
