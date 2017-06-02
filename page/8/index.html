@@ -69,10 +69,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Leetcode-13-Romantointeger" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Leetcode-14-Longest-common-prefix" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/27/Leetcode-13-Romantointeger/" class="article-date">
-  <time datetime="2017-05-27T08:39:45.000Z" itemprop="datePublished">2017-05-27</time>
+    <a href="/2017/05/28/Leetcode-14-Longest-common-prefix/" class="article-date">
+  <time datetime="2017-05-28T06:34:57.000Z" itemprop="datePublished">2017-05-28</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/27/Leetcode-13-Romantointeger/">Leetcode 13 Roman to integer</a>
+      <a class="article-title" href="/2017/05/28/Leetcode-14-Longest-common-prefix/">Leetcode 14 Longest common prefix</a>
     </h1>
   
 
@@ -91,22 +91,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><h2 id="该分类最主要作为我leetcode的记录，尽量每一个题目都写一下，加深印象的同时也可以作为一个监督，没有更新的日期就是我没有完成任务的时候。（翘课不务正业）。"><a href="#该分类最主要作为我leetcode的记录，尽量每一个题目都写一下，加深印象的同时也可以作为一个监督，没有更新的日期就是我没有完成任务的时候。（翘课不务正业）。" class="headerlink" title="该分类最主要作为我leetcode的记录，尽量每一个题目都写一下，加深印象的同时也可以作为一个监督，没有更新的日期就是我没有完成任务的时候。（翘课不务正业）。"></a>该分类最主要作为我leetcode的记录，尽量每一个题目都写一下，加深印象的同时也可以作为一个监督，没有更新的日期就是我没有完成任务的时候。（翘课不务正业）。</h2><h3 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h3><h2 id="Roman-to-Integer"><a href="#Roman-to-Integer" class="headerlink" title="Roman to Integer."></a><a href="https://leetcode.com/problems/roman-to-integer/#/description" target="_blank" rel="external">Roman to Integer</a>.</h2><h3 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h3><p>实现罗马数字和整数的转换，首先要懂得罗马数字的使用规则。</p>
-<p>罗马数字一共有七个字母：M，D，C,L,X,V,I.<br>分别代表着：1000，500，100，50，10，5，1.  </p>
-<p>拥有几种组合规则：<br>1.相同的数字连写， 所表示的数等于这些数字相加得到的数。如 XXX表示 30<br>2.小的数字在大的数字的右边， 所表示的数等于这些数字相加得到的数 如VIII 表示8<br>3.小的数字(限于I, X, C)在大的数字的左边， 所表示的数等于大数减去小的数： 如IV 表示4<br>4.在一个数的上面画一条横线， 表示这个数增值1000倍(由于题目只考虑4000以内的数，所以这条规则不用考虑)。</p>
-<p>组合时要注意的事情：<br>1.I, X, C： 最多只能连用3个， 如果放在大数的左边，只能用1个。<br>2.V, L, D: 不能放在大数的左边，只能使用一个。<br>3.I 只能用在V和X的左边。 IV表示4, IX表示9<br>4.X只能放在L,C左边。 XL 表示40, XC表示90<br>5.C只能用在D, M左边。 CD 表示400, CM表示900</p>
-<h3 id="分析结果"><a href="#分析结果" class="headerlink" title="分析结果"></a>分析结果</h3><p>麻烦的是这些既可以在左边也可以在右边，所以要两种考虑。<br>两种情况，如果当前数比下一个数大，那么纠结着加上之后的数字，如果当前的数字比之后的数字要小，那么就用后面的数字减去当前的数字进行加和。</p>
-<h3 id="代码如下（空格与标识符要分开）"><a href="#代码如下（空格与标识符要分开）" class="headerlink" title="代码如下（空格与标识符要分开）"></a>代码如下（空格与标识符要分开）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">public static int change(String s)&#123;</div><div class="line">		int[] standard =new int[256];</div><div class="line">		standard[&apos;M&apos;] = 1000;</div><div class="line">		standard[&apos;D&apos;] = 500;</div><div class="line">		standard[&apos;C&apos;] = 100;</div><div class="line">		standard[&apos;L&apos;] = 50;</div><div class="line">		standard[&apos;X&apos;] = 10;</div><div class="line">		standard[&apos;V&apos;] = 5;</div><div class="line">		standard[&apos;I&apos;] = 1;</div><div class="line">		//这种数组存储的想法不错，就是有点浪费空间</div><div class="line">		char[] c = s.toCharArray();</div><div class="line">		//好像有点多费手续</div><div class="line">		int sum = 0;</div><div class="line">		//这里有点问题</div><div class="line">//		for(int i = 0;i&lt;c.length-1;i++)&#123;</div><div class="line">//			if(standard[c[i]]&gt;=standard[c[i+1]])&#123;</div><div class="line">//				sum += standard[c[i]];</div><div class="line">//			&#125;</div><div class="line">//			else&#123;</div><div class="line">//				sum -= standard[c[i]];</div><div class="line">//			&#125;</div><div class="line">//		&#125;</div><div class="line">		//这样就好了</div><div class="line">		for(int i = 0;i&lt;c.length;i++)&#123;</div><div class="line">			if(i+1&gt;=c.length)&#123;</div><div class="line">				sum += standard[c[i]];</div><div class="line">			&#125;</div><div class="line">			if(standard[c[i]]&gt;=standard[c[i+1]])&#123;</div><div class="line">				sum += standard[c[i]];</div><div class="line">			&#125;</div><div class="line">			else&#123;</div><div class="line">				sum -= standard[c[i]];</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		return sum;</div><div class="line">		</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-<p>下面是别人的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">int romanToInt(string s) &#123;  </div><div class="line">        int tagVal[256];  </div><div class="line">        tagVal[&apos;I&apos;] = 1;  </div><div class="line">        tagVal[&apos;V&apos;] = 5;  </div><div class="line">        tagVal[&apos;X&apos;] = 10;  </div><div class="line">        tagVal[&apos;C&apos;] = 100;  </div><div class="line">        tagVal[&apos;M&apos;] = 1000;  </div><div class="line">        tagVal[&apos;L&apos;] = 50;  </div><div class="line">        tagVal[&apos;D&apos;] = 500;  </div><div class="line">        int val = 0;  </div><div class="line">        for(int i = 0; i &lt; s.length(); i++)&#123;  </div><div class="line">            if(i+1 &gt;= s.length() || tagVal[s[i+1]] &lt;= tagVal[s[i]])  </div><div class="line">                val += tagVal[s[i]];  </div><div class="line">            else  </div><div class="line">                val -= tagVal[s[i]];   </div><div class="line">        &#125;  </div><div class="line">        return val;   </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h3>
+        <h3 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h3><h2 id="Longest-Common-Prefix"><a href="#Longest-Common-Prefix" class="headerlink" title="Longest Common Prefix"></a><a href="https://leetcode.com/problems/longest-common-prefix/#/description" target="_blank" rel="external">Longest Common Prefix</a></h2><h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><h2 id="题意很好理解，找出字符串数组中的相同的最长前缀，给定许多字符串，找到共同最长前缀，需要用到的是字符串的处理方法。"><a href="#题意很好理解，找出字符串数组中的相同的最长前缀，给定许多字符串，找到共同最长前缀，需要用到的是字符串的处理方法。" class="headerlink" title="题意很好理解，找出字符串数组中的相同的最长前缀，给定许多字符串，找到共同最长前缀，需要用到的是字符串的处理方法。"></a>题意很好理解，找出字符串数组中的相同的最长前缀，给定许多字符串，找到共同最长前缀，需要用到的是字符串的处理方法。</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><h2 id="拿出一个字符串之后，这个字符串可能就是最短，或者不是，那么遍历其他所有的字符串，每一次遍历中都寻找共同的前缀，如若没有，那么结果为空。"><a href="#拿出一个字符串之后，这个字符串可能就是最短，或者不是，那么遍历其他所有的字符串，每一次遍历中都寻找共同的前缀，如若没有，那么结果为空。" class="headerlink" title="拿出一个字符串之后，这个字符串可能就是最短，或者不是，那么遍历其他所有的字符串，每一次遍历中都寻找共同的前缀，如若没有，那么结果为空。"></a>拿出一个字符串之后，这个字符串可能就是最短，或者不是，那么遍历其他所有的字符串，每一次遍历中都寻找共同的前缀，如若没有，那么结果为空。</h2><h3 id="方法总结"><a href="#方法总结" class="headerlink" title="方法总结"></a>方法总结</h3><p>题目较为简单，却走了很多弯路，源于对方法的不熟悉。<br>res.indexOf(String subString)方法，如果subString是res的字串，则返回subString在res中第一个字母的索引，如果不是，则返回-1，因此只要用返回值是为0，那么就是前缀。</p>
+<h2 id="另外，一般使用equals比较两个字符串，返回值为布尔值。"><a href="#另外，一般使用equals比较两个字符串，返回值为布尔值。" class="headerlink" title="另外，一般使用equals比较两个字符串，返回值为布尔值。  "></a>另外，一般使用equals比较两个字符串，返回值为布尔值。  </h2><h3 id="经典代码"><a href="#经典代码" class="headerlink" title="经典代码"></a>经典代码</h3><p>我自己的（拐了半天弯参照别人的，不过思路是没问题的）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">    public String longestCommonPrefix(String[] strs) &#123;</div><div class="line">        if(strs.length==0)&#123;</div><div class="line">			return &quot;&quot;;</div><div class="line">		&#125;</div><div class="line">		String res = strs[0];</div><div class="line">		//第一个错误，要寻找前缀，就不能使用indexOf();</div><div class="line">//		for(int i = 1;i&lt;strs.length;i++)&#123;</div><div class="line">//			while(strs[i].indexOf(res)==-1)&#123;</div><div class="line">//				res = res.substring(0, res.length()-1);</div><div class="line">//			&#125;</div><div class="line">//		&#125;</div><div class="line">		for(int i = 1;i&lt;strs.length;i++)&#123;</div><div class="line">		    while(strs[i].indexOf(res)!=0)&#123;</div><div class="line">		        res = res.substring(0,res.length()-1);</div><div class="line">		    &#125;</div><div class="line">		&#125;</div><div class="line">		return res;</div><div class="line">        </div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>别人的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public String longestCommonPrefix(String[] strs) &#123;</div><div class="line">    if(strs == null || strs.length == 0)    return &quot;&quot;;</div><div class="line">    String pre = strs[0];</div><div class="line">    int i = 1;</div><div class="line">    while(i &lt; strs.length)&#123;</div><div class="line">        while(strs[i].indexOf(pre) != 0)</div><div class="line">            pre = pre.substring(0,pre.length()-1);</div><div class="line">        i++;</div><div class="line">    &#125;</div><div class="line">    return pre;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>一直写才可以保持手感。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://Dangzhx.github.io/2017/05/27/Leetcode-13-Romantointeger/" data-id="cj3dw1xyw000de0w3cw73pm1q" class="article-share-link">Share</a>
+      <a data-url="http://Dangzhx.github.io/2017/05/28/Leetcode-14-Longest-common-prefix/" data-id="cj3fxmafi000ch8w3x4os6tx9" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li></ul>
 
     </footer>
   </div>
@@ -118,7 +114,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/7/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span>
+    <a class="extend prev" rel="prev" href="/page/7/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -163,6 +159,10 @@
       <ul>
         
           <li>
+            <a href="/2017/06/02/Leetcode-58-Length-of-Last-Word/">Leetcode 58 Length of Last Word</a>
+          </li>
+        
+          <li>
             <a href="/2017/06/01/Leetcode-35-Search-Insert-Position/">Leetcode 35 Search Insert Position</a>
           </li>
         
@@ -176,10 +176,6 @@
         
           <li>
             <a href="/2017/05/29/Leetcode-26-Remove-Duplicates-from-Sorted-Array/">Leetcode 26 Remove Duplicates from Sorted Array</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/29/Leetcode-27-Remove-Element/">Leetcode-27-Remove Element</a>
           </li>
         
       </ul>
