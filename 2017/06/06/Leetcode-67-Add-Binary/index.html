@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Leetcode 67 Add Binary | 零点一光年</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="题目来源Add Binary  题目分析这道题目是让我们实现二进制的加法，并且是给定两个字符串形式的二进制数进行相加。我的思维受到了局限，忘记了把字符处理为数字处理更为方便，不过我认为还是经验问题，这次见到了，下次大概就会用到了。还有StringBuilder这个类，平时也没怎么用过，这时候发现确实很方便，append()可以把各种类型的量添加到字符串中，不过后面要用toString()转化为字符">
+<meta name="keywords" content="Easy questions of leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode 67 Add Binary">
+<meta property="og:url" content="http://Dangzhx.github.io/2017/06/06/Leetcode-67-Add-Binary/index.html">
+<meta property="og:site_name" content="零点一光年">
+<meta property="og:description" content="题目来源Add Binary  题目分析这道题目是让我们实现二进制的加法，并且是给定两个字符串形式的二进制数进行相加。我的思维受到了局限，忘记了把字符处理为数字处理更为方便，不过我认为还是经验问题，这次见到了，下次大概就会用到了。还有StringBuilder这个类，平时也没怎么用过，这时候发现确实很方便，append()可以把各种类型的量添加到字符串中，不过后面要用toString()转化为字符">
+<meta property="og:updated_time" content="2017-06-06T15:06:18.368Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Leetcode 67 Add Binary">
+<meta name="twitter:description" content="题目来源Add Binary  题目分析这道题目是让我们实现二进制的加法，并且是给定两个字符串形式的二进制数进行相加。我的思维受到了局限，忘记了把字符处理为数字处理更为方便，不过我认为还是经验问题，这次见到了，下次大概就会用到了。还有StringBuilder这个类，平时也没怎么用过，这时候发现确实很方便，append()可以把各种类型的量添加到字符串中，不过后面要用toString()转化为字符">
+  
+    <link rel="alternate" href="/atom.xml" title="零点一光年" type="application/atom+xml">
+  
+  
+  <link rel="shortcut icon" href=" /favicon.ico" /> 
+    
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">零点一光年</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">愚蠢的人类啊.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://Dangzhx.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Leetcode-67-Add-Binary" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/06/Leetcode-67-Add-Binary/" class="article-date">
+  <time datetime="2017-06-06T14:56:42.000Z" itemprop="datePublished">2017-06-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Leetcode 67 Add Binary
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h3><p><a href="https://leetcode.com/problems/add-binary/#/description" target="_blank" rel="external">Add Binary</a></p>
+<hr>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>这道题目是让我们实现二进制的加法，并且是给定两个字符串形式的二进制数进行相加。我的思维受到了局限，忘记了把字符处理为数字处理更为方便，不过我认为还是经验问题，这次见到了，下次大概就会用到了。<br>还有StringBuilder这个类，平时也没怎么用过，这时候发现确实很方便，append()可以把各种类型的量添加到字符串中，不过后面要用toString()转化为字符串就是了。<br>思维还是一位一位的处理，每一次都要有进位，每一次结果添加到结果字符串中，如果最后还有进位，那么就再加个’1’就好了。<br>StringBuilder.reverse()倒置。</p>
+<hr>
+<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line">    public String addBinary(String a, String b) &#123;</div><div class="line">        StringBuilder str = new StringBuilder();</div><div class="line">        int i = a.length()-1;</div><div class="line">        int j = b.length()-1;</div><div class="line">        int plus = 0;</div><div class="line">        int sum = 0;</div><div class="line">        while(j&gt;=0||i&gt;=0)&#123;</div><div class="line">            sum = plus;</div><div class="line">            if(i&gt;=0) sum += a.charAt(i--)-&apos;0&apos;;</div><div class="line">            if(j&gt;=0) sum += b.charAt(j--)-&apos;0&apos;;</div><div class="line">            str.append(sum%2);</div><div class="line">            plus = sum/2;</div><div class="line">        &#125;</div><div class="line">        if(plus!=0)&#123;</div><div class="line">            str.append(1);</div><div class="line">        &#125;</div><div class="line">        return str.reverse().toString();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>代码还是亲手敲了比较有感觉。</p>
+<hr>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>今天早上搞git，虽然学的很少，不过终于在本地clone了一个远程库，以后多加利用。<br>下午搞Android的过程中发现果然还是太多东西不动，一定要加深学习，对于当前android的架构加深理解，尤其是gradle这个东西，懂了是神器，但是对于现在的我简直是杀手，一定要尽快搞懂。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://Dangzhx.github.io/2017/06/06/Leetcode-67-Add-Binary/" data-id="cj3lp7gqb000i2ow3qs2ih62j" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/06/Android开发问题记录/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Android开发问题记录
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+ 
+  <section id="comments">
+<!--高速版，加载速度快，使用前需测试页面的兼容性-->
+<div id="SOHUCS" sid="Leetcode 67 Add Binary"></div>
+<script>
+  (function(){
+    var appid = 'cyt2CAJuO',
+    conf = '2c70f52908efdbaadfeb1ca4b40807eb';
+    var doc = document,
+    s = doc.createElement('script'),
+    h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+    s.type = 'text/javascript';
+    s.charset = 'utf-8';
+    s.src =  'https://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
+    h.insertBefore(s,h.firstChild);
+    window.SCS_NO_IFRAME = true;
+  })()
+</script>    
+  </section>
+  </section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy  questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/等下就优化/">等下就优化</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 10px;">Easy  questions of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 15px;">Easy question of leetcode.</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 20px;">Easy questions of leetcode</a> <a href="/tags/等下就优化/" style="font-size: 10px;">等下就优化</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/06/Leetcode-67-Add-Binary/">Leetcode 67 Add Binary</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/06/Android开发问题记录/">Android开发问题记录</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/05/Leetcode-66-Plus-One/">Leetcode 66 Plus One</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/04/Leetcode-1-Two-Sum/">Leetcode 1 Two Sum</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/03/Leetcode-53-Maximum-Subarray/">Leetcode 53 Maximum Subarray</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 DZX<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
