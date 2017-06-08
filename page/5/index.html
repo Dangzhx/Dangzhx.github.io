@@ -69,10 +69,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Leetcode-1-Two-Sum" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Leetcode-66-Plus-One" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/06/04/Leetcode-1-Two-Sum/" class="article-date">
-  <time datetime="2017-06-04T13:32:55.000Z" itemprop="datePublished">2017-06-04</time>
+    <a href="/2017/06/05/Leetcode-66-Plus-One/" class="article-date">
+  <time datetime="2017-06-05T15:27:33.000Z" itemprop="datePublished">2017-06-05</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/04/Leetcode-1-Two-Sum/">Leetcode 1 Two Sum</a>
+      <a class="article-title" href="/2017/06/05/Leetcode-66-Plus-One/">Leetcode 66 Plus One</a>
     </h1>
   
 
@@ -91,19 +91,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h3><p><a href="https://leetcode.com/problems/two-sum/#/solutions" target="_blank" rel="external">Two Sum</a></p>
+        <h3 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h3><p><a href="https://leetcode.com/problems/plus-one/#/description" target="_blank" rel="external">Plus One</a></p>
 <hr>
-<h3 id="题目之前"><a href="#题目之前" class="headerlink" title="题目之前"></a>题目之前</h3><p>今天按照计划是把上周完成的题目复习一遍，但是无奈飞行棋迫在眉睫，神盾局也得赶紧看完，还要熟悉git的运行规则命令，于是无法完成复习，就解决一下我以前做的这道题目，第一题。<br>找出题目给的数组中，两个数的和等于目标数字的数的下标，作为一个长度为2的数组返回，以我上一次做这个题目的水平，就是使用双循环，暴力寻找，因为题目告诉了必定有解。然而到了今天，我还是没能应用新的数据结构，因为我还没有对于map一类的数据结构熟练的使用，说明我确实进步不大 ，同8个月之前相比。</p>
-<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3><p>暴力模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line">    public int[] twoSum(int[] nums, int target) &#123;</div><div class="line">        int[] res = new int[2];</div><div class="line">        for(int i = 0;i&lt;nums.length;i++)&#123;</div><div class="line">            for(int j = i+1;j&lt;nums.length;j++)&#123;</div><div class="line">                if(nums[i]+nums[j]==target)&#123;</div><div class="line">                    res[0]=i;</div><div class="line">                    res[1]=j;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>熟悉了下map的解决方式,确实也很简单，但是要对map熟悉一点，只需要O(n)，在遍历的过程中将数组值与下标存入到hashmap中，到下一个个数字，就可以知道map中有没有符合条件的键，如果有的话，就把当前数字的下标和map中符合条件的键值作为结果返回就行了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public int[] twoSum(int[] numbers, int target) &#123;</div><div class="line">    int[] result = new int[2];</div><div class="line">    Map&lt;Integer, Integer&gt; map = new HashMap&lt;Integer, Integer&gt;();</div><div class="line">    for (int i = 0; i &lt; numbers.length; i++) &#123;</div><div class="line">        if (map.containsKey(target - numbers[i])) &#123;</div><div class="line">            result[1] = i + 1;</div><div class="line">            result[0] = map.get(target - numbers[i]);</div><div class="line">            return result;</div><div class="line">        &#125;</div><div class="line">        map.put(numbers[i], i + 1);</div><div class="line">    &#125;</div><div class="line">    return result;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>要好好学习数据结构，要好好安排时间，要尽量不拖延。<br>拖延，大概是热情不够。</p>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>题目的意思一开始还没看懂，后来才看清楚，英语水平确实还不够。<br>题目的意思呢就是把一个正整数以数组的形势存储每一位数，之后给这个“数”加一，得到最后的结果。<br>陷阱就是在数字为若干个9的时候，加了一之后会使得结果增加一位数，那么之前的数组就不可以使用了。但是，因为在最后一位加，如果可以一直到第一位最高位上还有进位，那么结果就是10000……各种0了，所以只要新建一个比之前大一位的数组就可以了，第一位为1，其余java中会自动给0。</p>
+<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line">    public int[] plusOne(int[] digits) &#123;</div><div class="line">       </div><div class="line">        for(int i = digits.length-1;i&gt;=0;i--)&#123;</div><div class="line">            if(digits[i]&lt;9)&#123;</div><div class="line">                digits[i]++;</div><div class="line">                return digits;</div><div class="line">            &#125;</div><div class="line">            digits[i]=0;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        int[] res = new int[digits.length+1];</div><div class="line">        res[0]=1;</div><div class="line">        return res;</div><div class="line"> </div><div class="line">        //return digits;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="日常"><a href="#日常" class="headerlink" title="日常"></a>日常</h3><p>代码要尽量简化，我的代码一开始是挺长的，虽然对了但是beat没多少，修改了之后勉强50+，还是有很大的空间。<br>最近要做各种大作业，忙起来也许也比较好。<br>想到一件事就要赶紧去做，立即行动会养成好习惯。<br>坚持很重要，差点没写这篇东西，可怕可怕。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://Dangzhx.github.io/2017/06/04/Leetcode-1-Two-Sum/" data-id="cj3mqz6hu0007ycw3u47hcfrp" class="article-share-link">Share</a>
+      <a data-url="http://Dangzhx.github.io/2017/06/05/Leetcode-66-Plus-One/" data-id="cj3oidx3b000qf8w3awn62x6m" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li></ul>
+
     </footer>
   </div>
   
@@ -114,7 +116,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/4/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/6/">__('next') &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/6/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -159,6 +161,10 @@
       <ul>
         
           <li>
+            <a href="/2017/06/08/Leetcode-100-Same-Tree/">Leetcode 100 Same Tree</a>
+          </li>
+        
+          <li>
             <a href="/2017/06/07/Leetcode-70-Climbing-Stairs/">Leetcode 70 Climbing Stairs</a>
           </li>
         
@@ -172,10 +178,6 @@
         
           <li>
             <a href="/2017/06/05/Leetcode-66-Plus-One/">Leetcode 66 Plus One</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/04/Leetcode-1-Two-Sum/">Leetcode 1 Two Sum</a>
           </li>
         
       </ul>

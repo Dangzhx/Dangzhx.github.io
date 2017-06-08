@@ -69,10 +69,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Leetcode-67-Add-Binary" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Leetcode-70-Climbing-Stairs" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/06/06/Leetcode-67-Add-Binary/" class="article-date">
-  <time datetime="2017-06-06T14:56:42.000Z" itemprop="datePublished">2017-06-06</time>
+    <a href="/2017/06/07/Leetcode-70-Climbing-Stairs/" class="article-date">
+  <time datetime="2017-06-07T08:24:06.000Z" itemprop="datePublished">2017-06-07</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/06/Leetcode-67-Add-Binary/">Leetcode 67 Add Binary</a>
+      <a class="article-title" href="/2017/06/07/Leetcode-70-Climbing-Stairs/">Leetcode 70 Climbing Stairs</a>
     </h1>
   
 
@@ -91,22 +91,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h3><p><a href="https://leetcode.com/problems/add-binary/#/description" target="_blank" rel="external">Add Binary</a></p>
+        <h3 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h3><p><a href="https://leetcode.com/problems/climbing-stairs/#/description" target="_blank" rel="external">Climbing Stairs</a></p>
 <hr>
-<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>这道题目是让我们实现二进制的加法，并且是给定两个字符串形式的二进制数进行相加。我的思维受到了局限，忘记了把字符处理为数字处理更为方便，不过我认为还是经验问题，这次见到了，下次大概就会用到了。<br>还有StringBuilder这个类，平时也没怎么用过，这时候发现确实很方便，append()可以把各种类型的量添加到字符串中，不过后面要用toString()转化为字符串就是了。<br>思维还是一位一位的处理，每一次都要有进位，每一次结果添加到结果字符串中，如果最后还有进位，那么就再加个’1’就好了。<br>StringBuilder.reverse()倒置。</p>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>这个题目一看就是动态规划，涉及到这种题目，就是Easy我也很费劲，做的少，隔得时间也太长，要想做好得加紧练习，完全理解。<br>这个题目呢，我们从小问题来看，爬楼梯问题。到达第一阶有一种方法，位置为0也是一种，而到达第二阶的时候，就有两种方法了，可以分两步，也可以一步到达。<br>我们可以这样想，要到达当前这一步，从前一步到这里只有一种方法，从前两阶到这里也只有一种方法那么到达当前位置的方法就是到达前两阶和到达前一阶的步数总和。以此类推。<br>每一次得到的就是到达当前位置所有的方法。</p>
 <hr>
-<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line">    public String addBinary(String a, String b) &#123;</div><div class="line">        StringBuilder str = new StringBuilder();</div><div class="line">        int i = a.length()-1;</div><div class="line">        int j = b.length()-1;</div><div class="line">        int plus = 0;</div><div class="line">        int sum = 0;</div><div class="line">        while(j&gt;=0||i&gt;=0)&#123;</div><div class="line">            sum = plus;</div><div class="line">            if(i&gt;=0) sum += a.charAt(i--)-&apos;0&apos;;</div><div class="line">            if(j&gt;=0) sum += b.charAt(j--)-&apos;0&apos;;</div><div class="line">            str.append(sum%2);</div><div class="line">            plus = sum/2;</div><div class="line">        &#125;</div><div class="line">        if(plus!=0)&#123;</div><div class="line">            str.append(1);</div><div class="line">        &#125;</div><div class="line">        return str.reverse().toString();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>代码还是亲手敲了比较有感觉。</p>
+<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line">    </div><div class="line">    public int climbStairs(int n) &#123;</div><div class="line">            </div><div class="line">            if(n==0||n==1||n==2) return n;</div><div class="line">            int[] res = new int [n+1];</div><div class="line">            res[0] = 1;</div><div class="line">            res[1] = 1;</div><div class="line">            for(int i = 2;i&lt;n+1;i++)&#123;</div><div class="line">                </div><div class="line">                res[i] = res[i-1]+res[i-2];</div><div class="line">                //System.out.println(res[i]+&quot; &quot;+i);</div><div class="line">            &#125;</div><div class="line">            return res[n];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <hr>
-<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>今天早上搞git，虽然学的很少，不过终于在本地clone了一个远程库，以后多加利用。<br>下午搞Android的过程中发现果然还是太多东西不动，一定要加深学习，对于当前android的架构加深理解，尤其是gradle这个东西，懂了是神器，但是对于现在的我简直是杀手，一定要尽快搞懂。</p>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>尽量这几天多做几道类似题目，掌握方法，掌握想法。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://Dangzhx.github.io/2017/06/06/Leetcode-67-Add-Binary/" data-id="cj3mqz6is000tycw35u1zdabf" class="article-share-link">Share</a>
+      <a data-url="http://Dangzhx.github.io/2017/06/07/Leetcode-70-Climbing-Stairs/" data-id="cj3oidx31000lf8w36kgd2csa" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/easy-questions-of-leetcode/">easy questions of leetcode</a></li></ul>
 
     </footer>
   </div>
@@ -118,7 +117,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/3/">__('next') &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/3/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -163,6 +162,10 @@
       <ul>
         
           <li>
+            <a href="/2017/06/08/Leetcode-100-Same-Tree/">Leetcode 100 Same Tree</a>
+          </li>
+        
+          <li>
             <a href="/2017/06/07/Leetcode-70-Climbing-Stairs/">Leetcode 70 Climbing Stairs</a>
           </li>
         
@@ -176,10 +179,6 @@
         
           <li>
             <a href="/2017/06/05/Leetcode-66-Plus-One/">Leetcode 66 Plus One</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/04/Leetcode-1-Two-Sum/">Leetcode 1 Two Sum</a>
           </li>
         
       </ul>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Leetcode 100 Same Tree | 零点一光年</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="题目来源Same Tree  题目分析终于不是数组和字符串了，是一道tree的题目，虽然是比较两个二叉树是否相同，不过也是一个我没那么熟悉的数据结构。  想到一般有tree就要递归，那自然我们比较两个tree的时候也要递归着去比较所有结点，直到不同或者直到遍历完所有结点。 对于二叉树来说，每一个结点都是一样的，就是他们都具有左节点和右结点。我们在比较两个树时候，对于任何一个结点都可以当作一棵树来对">
+<meta name="keywords" content="Easy questions of leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode 100 Same Tree">
+<meta property="og:url" content="http://Dangzhx.github.io/2017/06/08/Leetcode-100-Same-Tree/index.html">
+<meta property="og:site_name" content="零点一光年">
+<meta property="og:description" content="题目来源Same Tree  题目分析终于不是数组和字符串了，是一道tree的题目，虽然是比较两个二叉树是否相同，不过也是一个我没那么熟悉的数据结构。  想到一般有tree就要递归，那自然我们比较两个tree的时候也要递归着去比较所有结点，直到不同或者直到遍历完所有结点。 对于二叉树来说，每一个结点都是一样的，就是他们都具有左节点和右结点。我们在比较两个树时候，对于任何一个结点都可以当作一棵树来对">
+<meta property="og:updated_time" content="2017-06-08T14:18:41.891Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Leetcode 100 Same Tree">
+<meta name="twitter:description" content="题目来源Same Tree  题目分析终于不是数组和字符串了，是一道tree的题目，虽然是比较两个二叉树是否相同，不过也是一个我没那么熟悉的数据结构。  想到一般有tree就要递归，那自然我们比较两个tree的时候也要递归着去比较所有结点，直到不同或者直到遍历完所有结点。 对于二叉树来说，每一个结点都是一样的，就是他们都具有左节点和右结点。我们在比较两个树时候，对于任何一个结点都可以当作一棵树来对">
+  
+    <link rel="alternate" href="/atom.xml" title="零点一光年" type="application/atom+xml">
+  
+  
+  <link rel="shortcut icon" href=" /favicon.ico" /> 
+    
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">零点一光年</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">愚蠢的人类啊.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://Dangzhx.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Leetcode-100-Same-Tree" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/08/Leetcode-100-Same-Tree/" class="article-date">
+  <time datetime="2017-06-08T09:38:34.000Z" itemprop="datePublished">2017-06-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Leetcode 100 Same Tree
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h3><p><a href="https://leetcode.com/problems/same-tree/#/solutions" target="_blank" rel="external">Same Tree</a></p>
+<hr>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>终于不是数组和字符串了，是一道tree的题目，虽然是比较两个二叉树是否相同，不过也是一个我没那么熟悉的数据结构。</p>
+<ul>
+<li>想到一般有tree就要递归，那自然我们比较两个tree的时候也要递归着去比较所有结点，直到不同或者直到遍历完所有结点。</li>
+<li>对于二叉树来说，每一个结点都是一样的，就是他们都具有左节点和右结点。我们在比较两个树时候，对于任何一个结点都可以当作一棵树来对待，所以每到一个结点，我们都可以将它作为树处理，看它当前是否为空，或者结点的值是否相等。</li>
+<li>当值相等时，就可以将两个结点作为新的树重新调用自身方法，直到处理结束。</li>
+</ul>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line">    public boolean isSameTree(TreeNode p, TreeNode q) &#123;</div><div class="line">        if(p==null&amp;&amp;q==null)&#123;</div><div class="line">            return true;</div><div class="line">        &#125;</div><div class="line">        if(p==null||q==null)&#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        boolean leftres = false;</div><div class="line">        boolean rightres = false;</div><div class="line">        if(p.val==q.val)&#123;</div><div class="line">            leftres = isSameTree(p.left,q.left);</div><div class="line">            rightres = isSameTree(p.right,q.right);</div><div class="line">        &#125;else&#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">        if(leftres==true&amp;&amp;rightres==true)&#123;</div><div class="line">            return true;</div><div class="line">        &#125;else&#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>就递归成功来说还是挺好的，一般我都成功不了，总得各种改，看人家的，不过今天没需要。<br>这个代码可以优化，优化到如下情况。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">public boolean isSameTree(TreeNode p, TreeNode q) &#123;</div><div class="line">    if(p == null &amp;&amp; q == null) return true;</div><div class="line">    if(p == null || q == null) return false;</div><div class="line">    if(p.val == q.val)</div><div class="line">        return isSameTree(p.left, q.left) &amp;&amp; isSameTree(p.right, q.right);</div><div class="line">    return false;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样的话就看起来简单多了，道理是一样的。不过我写得可能比较易懂，损耗了些许效率吧。</p>
+<hr>
+<h3 id="今日"><a href="#今日" class="headerlink" title="今日"></a>今日</h3><p>新书到手，凛冬将至，加紧看书，加紧做大作业，预习复习各种事呢。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://Dangzhx.github.io/2017/06/08/Leetcode-100-Same-Tree/" data-id="cj3oidwzd0001f8w3o7zpn7k5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/07/Leetcode-70-Climbing-Stairs/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Leetcode 70 Climbing Stairs
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+ 
+  <section id="comments">
+<!--高速版，加载速度快，使用前需测试页面的兼容性-->
+<div id="SOHUCS" sid="Leetcode 100 Same Tree"></div>
+<script>
+  (function(){
+    var appid = 'cyt2CAJuO',
+    conf = '2c70f52908efdbaadfeb1ca4b40807eb';
+    var doc = document,
+    s = doc.createElement('script'),
+    h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+    s.type = 'text/javascript';
+    s.charset = 'utf-8';
+    s.src =  'https://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
+    h.insertBefore(s,h.firstChild);
+    window.SCS_NO_IFRAME = true;
+  })()
+</script>    
+  </section>
+  </section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy  questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/easy-questions-of-leetcode/">easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/等下就优化/">等下就优化</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 10px;">Easy  questions of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 15px;">Easy question of leetcode.</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 20px;">Easy questions of leetcode</a> <a href="/tags/easy-questions-of-leetcode/" style="font-size: 10px;">easy questions of leetcode</a> <a href="/tags/等下就优化/" style="font-size: 10px;">等下就优化</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/08/Leetcode-100-Same-Tree/">Leetcode 100 Same Tree</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/07/Leetcode-70-Climbing-Stairs/">Leetcode 70 Climbing Stairs</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/06/Leetcode-67-Add-Binary/">Leetcode 67 Add Binary</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/06/Android开发问题记录/">Android开发问题记录</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/05/Leetcode-66-Plus-One/">Leetcode 66 Plus One</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 DZX<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
