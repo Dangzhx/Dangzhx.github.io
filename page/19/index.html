@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>零点一光年</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="perseverance，curiosity and cofidence.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="零点一光年">
+<meta property="og:url" content="http://Dangzhx.github.io/page/19/index.html">
+<meta property="og:site_name" content="零点一光年">
+<meta property="og:description" content="perseverance，curiosity and cofidence.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="零点一光年">
+<meta name="twitter:description" content="perseverance，curiosity and cofidence.">
+  
+    <link rel="alternate" href="/atom.xml" title="零点一光年" type="application/atom+xml">
+  
+  
+  <link rel="shortcut icon" href=" /favicon.ico" /> 
+    
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">零点一光年</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">愚蠢的人类啊.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://Dangzhx.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Leetcode-21-Merge-Two-Sorted-Lists" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/28/Leetcode-21-Merge-Two-Sorted-Lists/" class="article-date">
+  <time datetime="2017-05-28T13:51:48.000Z" itemprop="datePublished">2017-05-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/28/Leetcode-21-Merge-Two-Sorted-Lists/">Leetcode-21-Merge Two Sorted Lists</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h3><h2 id="Merge-Two-Sorted-Lists"><a href="#Merge-Two-Sorted-Lists" class="headerlink" title="Merge Two Sorted Lists"></a><a href="https://leetcode.com/problems/merge-two-sorted-lists/#/description" target="_blank" rel="external">Merge Two Sorted Lists</a></h2><h3 id="分析一下"><a href="#分析一下" class="headerlink" title="分析一下"></a>分析一下</h3><p>这个题目比较简单，提交率也非常高，不过做一道是一道。<br>这个题目涉及到一些链表的知识，我们要把两个有序链表进行归并，重新成为一个新的有序链表返回。  </p>
+<h2 id="在这个过程中，我们要做的就是比较两个链表结点的大小，把各个适合大小的结点放到适合的位置。"><a href="#在这个过程中，我们要做的就是比较两个链表结点的大小，把各个适合大小的结点放到适合的位置。" class="headerlink" title="在这个过程中，我们要做的就是比较两个链表结点的大小，把各个适合大小的结点放到适合的位置。  "></a>在这个过程中，我们要做的就是比较两个链表结点的大小，把各个适合大小的结点放到适合的位置。  </h2><h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>指针的移动可能导致nullpointerexception，需要注意处理。</p>
+<h3 id="结果代码"><a href="#结果代码" class="headerlink" title="结果代码"></a>结果代码</h3><p>自己写得代码时间过久，看来光是解题思路并不行，还需要许多的优化地方，比如这道题，简单的题目，需要好好的优化。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">public ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123;</div><div class="line">        if(l1==null&amp;&amp;l2==null)&#123;</div><div class="line">            return null;</div><div class="line">        &#125;</div><div class="line">        if(l2==null)&#123;</div><div class="line">            return l1;</div><div class="line">        &#125;</div><div class="line">        if(l1==null)&#123;</div><div class="line">            return l2;</div><div class="line">        &#125;</div><div class="line">        ListNode res = null;</div><div class="line">        ListNode abc = null;</div><div class="line">        if(l1.val&gt;=l2.val)&#123;</div><div class="line">            res = l2;</div><div class="line">            abc = l2;</div><div class="line">            if(l2.next==null)&#123;</div><div class="line">                res.next = l1;</div><div class="line">                return abc;</div><div class="line">            &#125;</div><div class="line">            //l2 = l2.next;</div><div class="line">            </div><div class="line">        &#125;else&#123;</div><div class="line">            res = l1;</div><div class="line">            abc = l1;</div><div class="line">           // l1 = l1.next;</div><div class="line">            if(l1.next==null)&#123;</div><div class="line">                res.next = l2;</div><div class="line">                return abc;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        while(l1.next!=null||l2.next!=null)&#123;</div><div class="line">            if(l1.next==null&amp;&amp;l2.next!=null)&#123;</div><div class="line">                res.next = l2;</div><div class="line">                return abc;</div><div class="line">            &#125;</div><div class="line">            if(l2.next==null&amp;&amp;l1.next!=null)&#123;</div><div class="line">                res.next = l1;</div><div class="line">                return abc;</div><div class="line">            &#125;</div><div class="line">            if(l1.val&gt;=l2.val)&#123;</div><div class="line">                res.next = l2;</div><div class="line">                res = res.next;</div><div class="line">                l2 = l2.next;</div><div class="line">            &#125;else&#123;</div><div class="line">                res.next = l1;</div><div class="line">                res = res.next;</div><div class="line">                l1 = l1.next;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return abc;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p> 参考下别人的<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">public ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123;</div><div class="line">       if(l1 == null)&#123;</div><div class="line">           return l2;</div><div class="line">       &#125;</div><div class="line">       if(l2 == null)&#123;</div><div class="line">           return l1;</div><div class="line">       &#125;</div><div class="line">       </div><div class="line">       ListNode mergeHead;</div><div class="line">       if(l1.val &lt; l2.val)&#123;</div><div class="line">           mergeHead = l1;</div><div class="line">           mergeHead.next = mergeTwoLists(l1.next, l2);</div><div class="line">       &#125;</div><div class="line">       else&#123;</div><div class="line">           mergeHead = l2;</div><div class="line">           mergeHead.next = mergeTwoLists(l1, l2.next);</div><div class="line">       &#125;</div><div class="line">       return mergeHead;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>递归的每一次返回都是相对于当前情况的最终结果，我们只需要每次利用这个特性，每一次都把该结点的后续作为一个问题求解，得到结果之后进行返回，链接到前面已经得到的结果中，就可以得到最终结果。<br>对于递归的巧妙应用，值得好好学习一下。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://Dangzhx.github.io/2017/05/28/Leetcode-21-Merge-Two-Sorted-Lists/" data-id="cjarv4ix100096ow3av3u6vsn" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/等下就优化/">等下就优化</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+ 
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/18/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/20/">__('next') &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy  questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/easy-questions-of-leetcode/">easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-github/">study github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/等下就优化/">等下就优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件工程/">软件工程</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 10px;">Easy  questions of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 15px;">Easy question of leetcode.</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 20px;">Easy questions of leetcode</a> <a href="/tags/easy-questions-of-leetcode/" style="font-size: 10px;">easy questions of leetcode</a> <a href="/tags/study-github/" style="font-size: 10px;">study github</a> <a href="/tags/等下就优化/" style="font-size: 10px;">等下就优化</a> <a href="/tags/软件工程/" style="font-size: 10px;">软件工程</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/12/04/自述/">自述</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/11/new-life/">new life</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/11/软件工程记录1/">软件工程记录1</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/11/Becoming-a-giter/">Becoming a giter</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/09/as常用快捷键/">as常用快捷键与问题整理</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 DZX<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

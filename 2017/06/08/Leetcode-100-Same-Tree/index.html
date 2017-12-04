@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://Dangzhx.github.io/2017/06/08/Leetcode-100-Same-Tree/index.html">
 <meta property="og:site_name" content="零点一光年">
 <meta property="og:description" content="题目来源Same Tree  题目分析终于不是数组和字符串了，是一道tree的题目，虽然是比较两个二叉树是否相同，不过也是一个我没那么熟悉的数据结构。  想到一般有tree就要递归，那自然我们比较两个tree的时候也要递归着去比较所有结点，直到不同或者直到遍历完所有结点。 对于二叉树来说，每一个结点都是一样的，就是他们都具有左节点和右结点。我们在比较两个树时候，对于任何一个结点都可以当作一棵树来对">
-<meta property="og:updated_time" content="2017-06-08T14:18:41.891Z">
+<meta property="og:updated_time" content="2017-07-01T03:32:11.878Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode 100 Same Tree">
 <meta name="twitter:description" content="题目来源Same Tree  题目分析终于不是数组和字符串了，是一道tree的题目，虽然是比较两个二叉树是否相同，不过也是一个我没那么熟悉的数据结构。  想到一般有tree就要递归，那自然我们比较两个tree的时候也要递归着去比较所有结点，直到不同或者直到遍历完所有结点。 对于二叉树来说，每一个结点都是一样的，就是他们都具有左节点和右结点。我们在比较两个树时候，对于任何一个结点都可以当作一棵树来对">
@@ -104,12 +104,12 @@
 <p>就递归成功来说还是挺好的，一般我都成功不了，总得各种改，看人家的，不过今天没需要。<br>这个代码可以优化，优化到如下情况。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">public boolean isSameTree(TreeNode p, TreeNode q) &#123;</div><div class="line">    if(p == null &amp;&amp; q == null) return true;</div><div class="line">    if(p == null || q == null) return false;</div><div class="line">    if(p.val == q.val)</div><div class="line">        return isSameTree(p.left, q.left) &amp;&amp; isSameTree(p.right, q.right);</div><div class="line">    return false;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>这样的话就看起来简单多了，道理是一样的。不过我写得可能比较易懂，损耗了些许效率吧。</p>
 <hr>
-<h3 id="今日"><a href="#今日" class="headerlink" title="今日"></a>今日</h3><p>新书到手，凛冬将至，加紧看书，加紧做大作业，预习复习各种事呢。</p>
+<h3 id="今日"><a href="#今日" class="headerlink" title="今日"></a>今日</h3><p>新书到手，凛冬将至，加紧看书，加紧做大作业，预习复习各种事呢。    </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://Dangzhx.github.io/2017/06/08/Leetcode-100-Same-Tree/" data-id="cj3oidwzd0001f8w3o7zpn7k5" class="article-share-link">Share</a>
+      <a data-url="http://Dangzhx.github.io/2017/06/08/Leetcode-100-Same-Tree/" data-id="cjarv4iwr00086ow3gjrxd5rn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li></ul>
@@ -129,6 +129,11 @@
       </div>
     </a>
   
+  
+    <a href="/2017/06/09/as常用快捷键/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">as常用快捷键与问题整理</div>
+    </a>
   
 </nav>
 
@@ -165,7 +170,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy  questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/easy-questions-of-leetcode/">easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/等下就优化/">等下就优化</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy  questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/easy-questions-of-leetcode/">easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-github/">study github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/等下就优化/">等下就优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件工程/">软件工程</a></li></ul>
     </div>
   </div>
 
@@ -175,7 +180,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 10px;">Easy  questions of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 15px;">Easy question of leetcode.</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 20px;">Easy questions of leetcode</a> <a href="/tags/easy-questions-of-leetcode/" style="font-size: 10px;">easy questions of leetcode</a> <a href="/tags/等下就优化/" style="font-size: 10px;">等下就优化</a>
+      <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 10px;">Easy  questions of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 15px;">Easy question of leetcode.</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 20px;">Easy questions of leetcode</a> <a href="/tags/easy-questions-of-leetcode/" style="font-size: 10px;">easy questions of leetcode</a> <a href="/tags/study-github/" style="font-size: 10px;">study github</a> <a href="/tags/等下就优化/" style="font-size: 10px;">等下就优化</a> <a href="/tags/软件工程/" style="font-size: 10px;">软件工程</a>
     </div>
   </div>
 
@@ -184,7 +189,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
     </div>
   </div>
 
@@ -197,23 +202,23 @@
       <ul>
         
           <li>
-            <a href="/2017/06/08/Leetcode-100-Same-Tree/">Leetcode 100 Same Tree</a>
+            <a href="/2017/12/04/自述/">自述</a>
           </li>
         
           <li>
-            <a href="/2017/06/07/Leetcode-70-Climbing-Stairs/">Leetcode 70 Climbing Stairs</a>
+            <a href="/2017/11/11/new-life/">new life</a>
           </li>
         
           <li>
-            <a href="/2017/06/06/Leetcode-67-Add-Binary/">Leetcode 67 Add Binary</a>
+            <a href="/2017/06/11/软件工程记录1/">软件工程记录1</a>
           </li>
         
           <li>
-            <a href="/2017/06/06/Android开发问题记录/">Android开发问题记录</a>
+            <a href="/2017/06/11/Becoming-a-giter/">Becoming a giter</a>
           </li>
         
           <li>
-            <a href="/2017/06/05/Leetcode-66-Plus-One/">Leetcode 66 Plus One</a>
+            <a href="/2017/06/09/as常用快捷键/">as常用快捷键与问题整理</a>
           </li>
         
       </ul>

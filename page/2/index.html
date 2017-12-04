@@ -69,10 +69,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Leetcode-70-Climbing-Stairs" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-new-life" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/06/07/Leetcode-70-Climbing-Stairs/" class="article-date">
-  <time datetime="2017-06-07T08:24:06.000Z" itemprop="datePublished">2017-06-07</time>
+    <a href="/2017/11/11/new-life/" class="article-date">
+  <time datetime="2017-11-11T15:43:54.000Z" itemprop="datePublished">2017-11-11</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/07/Leetcode-70-Climbing-Stairs/">Leetcode 70 Climbing Stairs</a>
+      <a class="article-title" href="/2017/11/11/new-life/">new life</a>
     </h1>
   
 
@@ -91,22 +91,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h3><p><a href="https://leetcode.com/problems/climbing-stairs/#/description" target="_blank" rel="external">Climbing Stairs</a></p>
-<hr>
-<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>这个题目一看就是动态规划，涉及到这种题目，就是Easy我也很费劲，做的少，隔得时间也太长，要想做好得加紧练习，完全理解。<br>这个题目呢，我们从小问题来看，爬楼梯问题。到达第一阶有一种方法，位置为0也是一种，而到达第二阶的时候，就有两种方法了，可以分两步，也可以一步到达。<br>我们可以这样想，要到达当前这一步，从前一步到这里只有一种方法，从前两阶到这里也只有一种方法那么到达当前位置的方法就是到达前两阶和到达前一阶的步数总和。以此类推。<br>每一次得到的就是到达当前位置所有的方法。</p>
-<hr>
-<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line">    </div><div class="line">    public int climbStairs(int n) &#123;</div><div class="line">            </div><div class="line">            if(n==0||n==1||n==2) return n;</div><div class="line">            int[] res = new int [n+1];</div><div class="line">            res[0] = 1;</div><div class="line">            res[1] = 1;</div><div class="line">            for(int i = 2;i&lt;n+1;i++)&#123;</div><div class="line">                </div><div class="line">                res[i] = res[i-1]+res[i-2];</div><div class="line">                //System.out.println(res[i]+&quot; &quot;+i);</div><div class="line">            &#125;</div><div class="line">            return res[n];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<hr>
-<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>尽量这几天多做几道类似题目，掌握方法，掌握想法。</p>
-
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://Dangzhx.github.io/2017/06/07/Leetcode-70-Climbing-Stairs/" data-id="cj3oidx31000lf8w36kgd2csa" class="article-share-link">Share</a>
+      <a data-url="http://Dangzhx.github.io/2017/11/11/new-life/" data-id="cjarv4iy3000v6ow37n2nx80y" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/easy-questions-of-leetcode/">easy questions of leetcode</a></li></ul>
-
     </footer>
   </div>
   
@@ -117,7 +108,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/3/">__('next') &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/3/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -130,7 +121,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy  questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/easy-questions-of-leetcode/">easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/等下就优化/">等下就优化</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy  questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/easy-questions-of-leetcode/">easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-github/">study github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/等下就优化/">等下就优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件工程/">软件工程</a></li></ul>
     </div>
   </div>
 
@@ -140,7 +131,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 10px;">Easy  questions of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 15px;">Easy question of leetcode.</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 20px;">Easy questions of leetcode</a> <a href="/tags/easy-questions-of-leetcode/" style="font-size: 10px;">easy questions of leetcode</a> <a href="/tags/等下就优化/" style="font-size: 10px;">等下就优化</a>
+      <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 10px;">Easy  questions of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 15px;">Easy question of leetcode.</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 20px;">Easy questions of leetcode</a> <a href="/tags/easy-questions-of-leetcode/" style="font-size: 10px;">easy questions of leetcode</a> <a href="/tags/study-github/" style="font-size: 10px;">study github</a> <a href="/tags/等下就优化/" style="font-size: 10px;">等下就优化</a> <a href="/tags/软件工程/" style="font-size: 10px;">软件工程</a>
     </div>
   </div>
 
@@ -149,7 +140,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
     </div>
   </div>
 
@@ -162,23 +153,23 @@
       <ul>
         
           <li>
-            <a href="/2017/06/08/Leetcode-100-Same-Tree/">Leetcode 100 Same Tree</a>
+            <a href="/2017/12/04/自述/">自述</a>
           </li>
         
           <li>
-            <a href="/2017/06/07/Leetcode-70-Climbing-Stairs/">Leetcode 70 Climbing Stairs</a>
+            <a href="/2017/11/11/new-life/">new life</a>
           </li>
         
           <li>
-            <a href="/2017/06/06/Leetcode-67-Add-Binary/">Leetcode 67 Add Binary</a>
+            <a href="/2017/06/11/软件工程记录1/">软件工程记录1</a>
           </li>
         
           <li>
-            <a href="/2017/06/06/Android开发问题记录/">Android开发问题记录</a>
+            <a href="/2017/06/11/Becoming-a-giter/">Becoming a giter</a>
           </li>
         
           <li>
-            <a href="/2017/06/05/Leetcode-66-Plus-One/">Leetcode 66 Plus One</a>
+            <a href="/2017/06/09/as常用快捷键/">as常用快捷键与问题整理</a>
           </li>
         
       </ul>
