@@ -69,10 +69,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Leetcode-88-Merge-Sorted-Array" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Leetcode-28-Implement-strStr" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/31/Leetcode-88-Merge-Sorted-Array/" class="article-date">
-  <time datetime="2017-05-30T17:07:53.000Z" itemprop="datePublished">2017-05-31</time>
+    <a href="/2017/05/31/Leetcode-28-Implement-strStr/" class="article-date">
+  <time datetime="2017-05-31T15:03:32.000Z" itemprop="datePublished">2017-05-31</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/31/Leetcode-88-Merge-Sorted-Array/">Leetcode 88 Merge Sorted Array</a>
+      <a class="article-title" href="/2017/05/31/Leetcode-28-Implement-strStr/">Leetcode 28 Implement strStr()</a>
     </h1>
   
 
@@ -91,23 +91,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h3><p><a href="https://leetcode.com/problems/merge-sorted-array/#/solutions" target="_blank" rel="external">Merge Sorted Array</a><br>本题目算作是端午节题目，哈哈，虽然有点晚了。</p>
+        <h3 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h3><p><a href="https://leetcode.com/problems/implement-strstr/#/description" target="_blank" rel="external">Implement strStr()</a></p>
+<h2 id="发现了为什么字体变大，只要挨着-就会变成加粗模式"><a href="#发现了为什么字体变大，只要挨着-就会变成加粗模式" class="headerlink" title="发现了为什么字体变大，只要挨着 - - - 就会变成加粗模式"></a><em>发现了为什么字体变大，只要挨着 - - - 就会变成加粗模式</em></h2><h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>还是leetcode的简单题目，我的目的是先好好做简单题目，以前虽然中等困难的也做过一些，不过不少题目由于基础不扎实或者对于题目不够了解而导致做的效果很不好，因此先做好简单题目打好基础，当然同时也要巩固学习数据结构。<br>近几天的做题并没有什么经典的算法，都是凭借思路解决问题的题目。好了，说正题。今天的题目，是要实现一个常用方法，String类的方法indexOf ( String anotherstring ) ，即寻找一个字符串在另一个字符串中第一次出现的位置，若是没有则返回-1，有的话就返回位置索引。</p>
 <hr>
-<h3 id="分析题目"><a href="#分析题目" class="headerlink" title="分析题目"></a>分析题目</h3><p>这个题目看上去是很容易理解的。<br>将两个有序的数组归并到同一个数组中，假定第一个数组有着足够大的空间容纳所给定的两个数组的成员。<br>题目的参数误导了我好一会，因为给定的是有效数据的数量，一开始被我误认为是数组的长度，因此有了给定nums1=[0],m=0,nums2=[1],n=1这样的数据的时候不能理解，明明有个0，为什么长度为0.后来看到了这个例子：<br><img src="/images/number88.png" alt="实例截图">  丫的这个图片怎么回事。<br>总之，就是说这个nums1中的0，代表没有数据，此处可以用来存储的意思，对就是这样，所以nums1=[0],m=0的意思就是，nums1中是空的，可以用来存储nums2中的一个数据。  </p>
-<h3 id="分析结果"><a href="#分析结果" class="headerlink" title="分析结果"></a>分析结果</h3><p>主要影响就是上述的问题，解决了之后就比较好办了，我们采取和之前题目差不多的计数方法（暂时叫这个吧），以一个数记录下标，将有效值放入下标指定位置，之后改变下标。<br>对于本题，倒序处理比较好（看了人家代码），因为是在nums1中存储最终的数据，所以可以直接从m+n-1的下标开始，并不会影响到nums1中前面的数据。<br>而且，在某一个数组数据处理结束之后，若为nums1结束则不需处理，只处理nums2即可。<br>明天写一下正序的。</p>
+<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><ul>
+<li>给了空的输入，这是leetcode一贯的作风，两个空的输入一定会有。    这时应当返回0.</li>
+<li>上一条可以归结为，只要第二个串的长度为0，那么结果就是0.</li>
+<li>可能出现第二个串长度大于第一个的情况，要进行处理。</li>
+<li>取子字符串时后，substring方法的参数相同取到的时空值，该方法取得的值为两个参数之间的值。</li>
+<li>在正常情况下，第一个字符串中符合条件的子串一共有len1-len2个。</li>
+</ul>
 <hr>
-<h3 id="结果代码"><a href="#结果代码" class="headerlink" title="结果代码"></a>结果代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">public void merge(int[] nums1, int m, int[] nums2, int n) &#123;</div><div class="line">            int i = m-1;  //nums1实际下标。</div><div class="line">            int j = n-1;  //nums2实际下标。</div><div class="line">            int res = m+n-1;  //记录结果的下标。</div><div class="line">            </div><div class="line">            while(i&gt;=0&amp;&amp;j&gt;=0)&#123;</div><div class="line">                if(nums1[i]&gt;=nums2[j])&#123;</div><div class="line">                    //nums1[res--] = nums1[i--];  这种写法比较简便</div><div class="line">                    nums1[res] = nums1[i];</div><div class="line">                    res--;</div><div class="line">                    i--;</div><div class="line">                &#125;else&#123;</div><div class="line">                    nums1[res] = nums2[j];</div><div class="line">                    res--;</div><div class="line">                    j--;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            //因为本来就是在nums1中处理结果，所以当nums2中的数据处理结束之后，就不用再继续处理nums1;</div><div class="line">            while(j&gt;=0)&#123;</div><div class="line">                nums1[res--] = nums2[j--];</div><div class="line">            &#125;            </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h3 id="心得吧"><a href="#心得吧" class="headerlink" title="心得吧"></a>心得吧</h3><p>一定要好好想清楚逻辑关系再进行代码编写，不然会出现碰到一个错误例子解决一个错误例子，最后导致代码又臭又长，效率底下，惨不忍睹。<br>要尽量简化代码，简便易懂的代码才是最好的。</p>
 <hr>
-<h3 id="代码技巧"><a href="#代码技巧" class="headerlink" title="代码技巧"></a>代码技巧</h3><p><code>nums1[res--] = nums1[i--];</code><br>写法节省空间，意思也明了。</p>
+<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">public int strStr(String haystack, String needle) &#123;</div><div class="line">    </div><div class="line">    int sLen = haystack.length();</div><div class="line">    //System.out.print(haystack.charAt(1));</div><div class="line">    //charAt()下标也是从零开始</div><div class="line">    int nLen = needle.length();</div><div class="line">    if(nLen==0)&#123;</div><div class="line">        //System.out.println(&quot;blank&quot;);</div><div class="line">        </div><div class="line">        return 0;</div><div class="line">    &#125;</div><div class="line">    if(sLen&lt;nLen)&#123;</div><div class="line">        return -1;</div><div class="line">    &#125;</div><div class="line">    int res = -1;</div><div class="line">    for(int i = 0;i&lt;sLen-nLen+1;i++)&#123;</div><div class="line">        //索引or下标都是从零开始</div><div class="line">        //以同样的下标获得的substring不会是当前字符，而是空字符串。</div><div class="line">        //System.out.println(haystack.substring(i,nLen+i));</div><div class="line">        if(haystack.substring(i,nLen+i).equals(needle))&#123;</div><div class="line">            res = i;</div><div class="line">            break;</div><div class="line">           // System.out.println(&quot;res  &quot;+res);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return res;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>接下来的日子大概挺忙的，日子不多，事情很多，要合理安排。每周末找合适时间复习本周题目。每次要让代码打到合适的运行时间。</p>
 <hr>
+<p>最后这是页脚吗</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://Dangzhx.github.io/2017/05/31/Leetcode-88-Merge-Sorted-Array/" data-id="cjarv4iyd00146ow3tldqb8jq" class="article-share-link">Share</a>
+      <a data-url="http://Dangzhx.github.io/2017/05/31/Leetcode-28-Implement-strStr/" data-id="cjauufpw3000fwsw31fixut2o" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy  questions of leetcode</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li></ul>
 
     </footer>
   </div>
@@ -119,7 +127,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/15/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/17/">__('next') &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/15/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/17/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -132,7 +140,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy  questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/easy-questions-of-leetcode/">easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-github/">study github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/等下就优化/">等下就优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件工程/">软件工程</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy  questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/easy-questions-of-leetcode/">easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-Swing/">java Swing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-github/">study github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/等下就优化/">等下就优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件工程/">软件工程</a></li></ul>
     </div>
   </div>
 
@@ -142,7 +150,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 10px;">Easy  questions of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 15px;">Easy question of leetcode.</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 20px;">Easy questions of leetcode</a> <a href="/tags/easy-questions-of-leetcode/" style="font-size: 10px;">easy questions of leetcode</a> <a href="/tags/study-github/" style="font-size: 10px;">study github</a> <a href="/tags/等下就优化/" style="font-size: 10px;">等下就优化</a> <a href="/tags/软件工程/" style="font-size: 10px;">软件工程</a>
+      <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 10px;">Easy  questions of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 15px;">Easy question of leetcode.</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 20px;">Easy questions of leetcode</a> <a href="/tags/easy-questions-of-leetcode/" style="font-size: 10px;">easy questions of leetcode</a> <a href="/tags/java-Swing/" style="font-size: 10px;">java Swing</a> <a href="/tags/study-github/" style="font-size: 10px;">study github</a> <a href="/tags/等下就优化/" style="font-size: 10px;">等下就优化</a> <a href="/tags/软件工程/" style="font-size: 10px;">软件工程</a>
     </div>
   </div>
 
@@ -164,6 +172,10 @@
       <ul>
         
           <li>
+            <a href="/2017/12/06/Swing-1/">Swing(1)</a>
+          </li>
+        
+          <li>
             <a href="/2017/12/04/自述/">自述</a>
           </li>
         
@@ -177,10 +189,6 @@
         
           <li>
             <a href="/2017/06/11/Becoming-a-giter/">Becoming a giter</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/09/as常用快捷键/">as常用快捷键与问题整理</a>
           </li>
         
       </ul>
