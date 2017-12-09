@@ -69,10 +69,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Leetcode-58-Length-of-Last-Word" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Leetcode-1-Two-Sum" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/06/02/Leetcode-58-Length-of-Last-Word/" class="article-date">
-  <time datetime="2017-06-02T14:00:16.000Z" itemprop="datePublished">2017-06-02</time>
+    <a href="/2017/06/04/Leetcode-1-Two-Sum/" class="article-date">
+  <time datetime="2017-06-04T13:32:55.000Z" itemprop="datePublished">2017-06-04</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/02/Leetcode-58-Length-of-Last-Word/">Leetcode 58 Length of Last Word</a>
+      <a class="article-title" href="/2017/06/04/Leetcode-1-Two-Sum/">Leetcode 1 Two Sum</a>
     </h1>
   
 
@@ -91,32 +91,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h3><p><a href="https://leetcode.com/problems/length-of-last-word/#/solutions" target="_blank" rel="external">Length of Last Word</a></p>
+        <h3 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h3><p><a href="https://leetcode.com/problems/two-sum/#/solutions" target="_blank" rel="external">Two Sum</a></p>
 <hr>
-<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>得到一个给定字符串中，最后一个单词的长度，题目很简单，是字符串的处理，我的方法是先解决了两边的空格，再把字符串中间的空格当作标志使用。我使用一个计数变量，没遇到空格时每一个字符增加1，遇到空格则重置为0，就成功ac，但是时间并不理想，6ms，49.8%。</p>
-<hr>
-<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line">    public int lengthOfLastWord(String s) &#123;</div><div class="line">        char[] c = s.trim().toCharArray();</div><div class="line">        int res=0;</div><div class="line">        for(int i = 0;i&lt;c.length;i++)&#123;</div><div class="line">            if(c[i]!=&apos; &apos;)&#123;</div><div class="line">                //System.out.print(123);</div><div class="line">                res++;</div><div class="line">            &#125;else&#123;</div><div class="line">                res=0;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<hr>
-<h3 id="高效方法"><a href="#高效方法" class="headerlink" title="高效方法"></a>高效方法</h3><ul>
-<li><p>使用Java,看来我对于方法的应用还是不够多。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public int lengthOfLastWord(String s) &#123;</div><div class="line">    return s.trim().length()-s.trim().lastIndexOf(&quot; &quot;)-1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>使用C++，我突然发现，我倒着找不就行了。ok。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line">    public int lengthOfLastWord(String s) &#123;</div><div class="line">        char[] c = s.trim().toCharArray();</div><div class="line">        int res=0;</div><div class="line">        for(int i = c.length-1;i&gt;=0;i--)&#123;</div><div class="line">           // System.out.println(i);</div><div class="line">            if(c[i]!=&apos; &apos;)&#123;</div><div class="line">                //System.out.print(123);</div><div class="line">                res++;</div><div class="line">            &#125;else&#123;</div><div class="line">                break;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>不需要C++了。</p>
-<hr>
-<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>多个方向，可以快捷很多。</p>
+<h3 id="题目之前"><a href="#题目之前" class="headerlink" title="题目之前"></a>题目之前</h3><p>今天按照计划是把上周完成的题目复习一遍，但是无奈飞行棋迫在眉睫，神盾局也得赶紧看完，还要熟悉git的运行规则命令，于是无法完成复习，就解决一下我以前做的这道题目，第一题。<br>找出题目给的数组中，两个数的和等于目标数字的数的下标，作为一个长度为2的数组返回，以我上一次做这个题目的水平，就是使用双循环，暴力寻找，因为题目告诉了必定有解。然而到了今天，我还是没能应用新的数据结构，因为我还没有对于map一类的数据结构熟练的使用，说明我确实进步不大 ，同8个月之前相比。</p>
+<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3><p>暴力模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line">    public int[] twoSum(int[] nums, int target) &#123;</div><div class="line">        int[] res = new int[2];</div><div class="line">        for(int i = 0;i&lt;nums.length;i++)&#123;</div><div class="line">            for(int j = i+1;j&lt;nums.length;j++)&#123;</div><div class="line">                if(nums[i]+nums[j]==target)&#123;</div><div class="line">                    res[0]=i;</div><div class="line">                    res[1]=j;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>熟悉了下map的解决方式,确实也很简单，但是要对map熟悉一点，只需要O(n)，在遍历的过程中将数组值与下标存入到hashmap中，到下一个个数字，就可以知道map中有没有符合条件的键，如果有的话，就把当前数字的下标和map中符合条件的键值作为结果返回就行了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public int[] twoSum(int[] numbers, int target) &#123;</div><div class="line">    int[] result = new int[2];</div><div class="line">    Map&lt;Integer, Integer&gt; map = new HashMap&lt;Integer, Integer&gt;();</div><div class="line">    for (int i = 0; i &lt; numbers.length; i++) &#123;</div><div class="line">        if (map.containsKey(target - numbers[i])) &#123;</div><div class="line">            result[1] = i + 1;</div><div class="line">            result[0] = map.get(target - numbers[i]);</div><div class="line">            return result;</div><div class="line">        &#125;</div><div class="line">        map.put(numbers[i], i + 1);</div><div class="line">    &#125;</div><div class="line">    return result;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>要好好学习数据结构，要好好安排时间，要尽量不拖延。<br>拖延，大概是热情不够。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://Dangzhx.github.io/2017/06/02/Leetcode-58-Length-of-Last-Word/" data-id="cjauufpw9000kwsw3o0ridken" class="article-share-link">Share</a>
+      <a data-url="http://Dangzhx.github.io/2017/06/04/Leetcode-1-Two-Sum/" data-id="cjaz6p8fm00078ww3ptykcq17" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li></ul>
-
     </footer>
   </div>
   
@@ -127,7 +114,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/13/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/15/">__('next') &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/13/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/15/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -140,7 +127,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy  questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/easy-questions-of-leetcode/">easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-Swing/">java Swing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-github/">study github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/等下就优化/">等下就优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件工程/">软件工程</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy  questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Swing/">Java Swing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swing-Graphics2D/">Swing Graphics2D</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/easy-questions-of-leetcode/">easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-Swing/">java Swing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-github/">study github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/等下就优化/">等下就优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件工程/">软件工程</a></li></ul>
     </div>
   </div>
 
@@ -150,7 +137,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 10px;">Easy  questions of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 15px;">Easy question of leetcode.</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 20px;">Easy questions of leetcode</a> <a href="/tags/easy-questions-of-leetcode/" style="font-size: 10px;">easy questions of leetcode</a> <a href="/tags/java-Swing/" style="font-size: 10px;">java Swing</a> <a href="/tags/study-github/" style="font-size: 10px;">study github</a> <a href="/tags/等下就优化/" style="font-size: 10px;">等下就优化</a> <a href="/tags/软件工程/" style="font-size: 10px;">软件工程</a>
+      <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 10px;">Easy  questions of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 15px;">Easy question of leetcode.</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 20px;">Easy questions of leetcode</a> <a href="/tags/Java-Swing/" style="font-size: 10px;">Java Swing</a> <a href="/tags/Swing-Graphics2D/" style="font-size: 10px;">Swing Graphics2D</a> <a href="/tags/easy-questions-of-leetcode/" style="font-size: 10px;">easy questions of leetcode</a> <a href="/tags/java-Swing/" style="font-size: 10px;">java Swing</a> <a href="/tags/study-github/" style="font-size: 10px;">study github</a> <a href="/tags/等下就优化/" style="font-size: 10px;">等下就优化</a> <a href="/tags/软件工程/" style="font-size: 10px;">软件工程</a>
     </div>
   </div>
 
@@ -172,6 +159,14 @@
       <ul>
         
           <li>
+            <a href="/2017/12/09/Swing-3/">Swing(3)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/07/Swing-2/">Swing(2)</a>
+          </li>
+        
+          <li>
             <a href="/2017/12/06/Swing-1/">Swing(1)</a>
           </li>
         
@@ -181,14 +176,6 @@
         
           <li>
             <a href="/2017/11/11/new-life/">new life</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/11/软件工程记录1/">软件工程记录1</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/11/Becoming-a-giter/">Becoming a giter</a>
           </li>
         
       </ul>

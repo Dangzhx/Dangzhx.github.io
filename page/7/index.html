@@ -69,10 +69,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Leetcode-100-Same-Tree" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Becoming-a-giter" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/06/08/Leetcode-100-Same-Tree/" class="article-date">
-  <time datetime="2017-06-08T09:38:34.000Z" itemprop="datePublished">2017-06-08</time>
+    <a href="/2017/06/11/Becoming-a-giter/" class="article-date">
+  <time datetime="2017-06-11T03:02:08.000Z" itemprop="datePublished">2017-06-11</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/08/Leetcode-100-Same-Tree/">Leetcode 100 Same Tree</a>
+      <a class="article-title" href="/2017/06/11/Becoming-a-giter/">Becoming a giter</a>
     </h1>
   
 
@@ -91,28 +91,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h3><p><a href="https://leetcode.com/problems/same-tree/#/solutions" target="_blank" rel="external">Same Tree</a></p>
-<hr>
-<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>终于不是数组和字符串了，是一道tree的题目，虽然是比较两个二叉树是否相同，不过也是一个我没那么熟悉的数据结构。</p>
-<ul>
-<li>想到一般有tree就要递归，那自然我们比较两个tree的时候也要递归着去比较所有结点，直到不同或者直到遍历完所有结点。</li>
-<li>对于二叉树来说，每一个结点都是一样的，就是他们都具有左节点和右结点。我们在比较两个树时候，对于任何一个结点都可以当作一棵树来对待，所以每到一个结点，我们都可以将它作为树处理，看它当前是否为空，或者结点的值是否相等。</li>
-<li>当值相等时，就可以将两个结点作为新的树重新调用自身方法，直到处理结束。</li>
+        <h3 id="一起学习Git吧！"><a href="#一起学习Git吧！" class="headerlink" title="一起学习Git吧！"></a>一起学习Git吧！</h3><p>git作为一个强大的版本控制工具，对于我们平时的工作学习有着极大的帮助与作用。</p>
+<h2 id="学习git，使用git可能是使技术增长最快的方法了，所以不要错过这个重要的东西。"><a href="#学习git，使用git可能是使技术增长最快的方法了，所以不要错过这个重要的东西。" class="headerlink" title="学习git，使用git可能是使技术增长最快的方法了，所以不要错过这个重要的东西。"></a>学习git，使用git可能是使技术增长最快的方法了，所以不要错过这个重要的东西。</h2><h3 id="git问题记录"><a href="#git问题记录" class="headerlink" title="git问题记录"></a>git问题记录</h3><ul>
+<li>推送到远程库时候    fatal: remote origin already exists.<br>这时候需要删除掉之前的远程库，可能是之前推送到过什么远程库，有一个链接<br>指令  git remote rm origin<br>应该是这个项目本身存在git文件，导致我各种问题。</li>
 </ul>
-<hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line">    public boolean isSameTree(TreeNode p, TreeNode q) &#123;</div><div class="line">        if(p==null&amp;&amp;q==null)&#123;</div><div class="line">            return true;</div><div class="line">        &#125;</div><div class="line">        if(p==null||q==null)&#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        boolean leftres = false;</div><div class="line">        boolean rightres = false;</div><div class="line">        if(p.val==q.val)&#123;</div><div class="line">            leftres = isSameTree(p.left,q.left);</div><div class="line">            rightres = isSameTree(p.right,q.right);</div><div class="line">        &#125;else&#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">        if(leftres==true&amp;&amp;rightres==true)&#123;</div><div class="line">            return true;</div><div class="line">        &#125;else&#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>就递归成功来说还是挺好的，一般我都成功不了，总得各种改，看人家的，不过今天没需要。<br>这个代码可以优化，优化到如下情况。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">public boolean isSameTree(TreeNode p, TreeNode q) &#123;</div><div class="line">    if(p == null &amp;&amp; q == null) return true;</div><div class="line">    if(p == null || q == null) return false;</div><div class="line">    if(p.val == q.val)</div><div class="line">        return isSameTree(p.left, q.left) &amp;&amp; isSameTree(p.right, q.right);</div><div class="line">    return false;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这样的话就看起来简单多了，道理是一样的。不过我写得可能比较易懂，损耗了些许效率吧。</p>
-<hr>
-<h3 id="今日"><a href="#今日" class="headerlink" title="今日"></a>今日</h3><p>新书到手，凛冬将至，加紧看书，加紧做大作业，预习复习各种事呢。    </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://Dangzhx.github.io/2017/06/08/Leetcode-100-Same-Tree/" data-id="cjauufpvj0004wsw3nrej2tho" class="article-share-link">Share</a>
+      <a data-url="http://Dangzhx.github.io/2017/06/11/Becoming-a-giter/" data-id="cjaz6p8co00008ww3swouu0d3" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study-github/">study github</a></li></ul>
 
     </footer>
   </div>
@@ -124,7 +114,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/6/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/8/">__('next') &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/6/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/8/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -137,7 +127,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy  questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/easy-questions-of-leetcode/">easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-Swing/">java Swing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-github/">study github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/等下就优化/">等下就优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件工程/">软件工程</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy  questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Swing/">Java Swing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swing-Graphics2D/">Swing Graphics2D</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/easy-questions-of-leetcode/">easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-Swing/">java Swing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-github/">study github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/等下就优化/">等下就优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件工程/">软件工程</a></li></ul>
     </div>
   </div>
 
@@ -147,7 +137,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 10px;">Easy  questions of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 15px;">Easy question of leetcode.</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 20px;">Easy questions of leetcode</a> <a href="/tags/easy-questions-of-leetcode/" style="font-size: 10px;">easy questions of leetcode</a> <a href="/tags/java-Swing/" style="font-size: 10px;">java Swing</a> <a href="/tags/study-github/" style="font-size: 10px;">study github</a> <a href="/tags/等下就优化/" style="font-size: 10px;">等下就优化</a> <a href="/tags/软件工程/" style="font-size: 10px;">软件工程</a>
+      <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 10px;">Easy  questions of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 15px;">Easy question of leetcode.</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 20px;">Easy questions of leetcode</a> <a href="/tags/Java-Swing/" style="font-size: 10px;">Java Swing</a> <a href="/tags/Swing-Graphics2D/" style="font-size: 10px;">Swing Graphics2D</a> <a href="/tags/easy-questions-of-leetcode/" style="font-size: 10px;">easy questions of leetcode</a> <a href="/tags/java-Swing/" style="font-size: 10px;">java Swing</a> <a href="/tags/study-github/" style="font-size: 10px;">study github</a> <a href="/tags/等下就优化/" style="font-size: 10px;">等下就优化</a> <a href="/tags/软件工程/" style="font-size: 10px;">软件工程</a>
     </div>
   </div>
 
@@ -169,6 +159,14 @@
       <ul>
         
           <li>
+            <a href="/2017/12/09/Swing-3/">Swing(3)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/07/Swing-2/">Swing(2)</a>
+          </li>
+        
+          <li>
             <a href="/2017/12/06/Swing-1/">Swing(1)</a>
           </li>
         
@@ -178,14 +176,6 @@
         
           <li>
             <a href="/2017/11/11/new-life/">new life</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/11/软件工程记录1/">软件工程记录1</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/11/Becoming-a-giter/">Becoming a giter</a>
           </li>
         
       </ul>
