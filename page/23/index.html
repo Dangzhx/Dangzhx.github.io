@@ -69,10 +69,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Leetcode-26-Remove-Duplicates-from-Sorted-Array" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Leetcode-28-Implement-strStr" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/29/Leetcode-26-Remove-Duplicates-from-Sorted-Array/" class="article-date">
-  <time datetime="2017-05-29T12:46:53.000Z" itemprop="datePublished">2017-05-29</time>
+    <a href="/2017/05/31/Leetcode-28-Implement-strStr/" class="article-date">
+  <time datetime="2017-05-31T15:03:32.000Z" itemprop="datePublished">2017-05-31</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/29/Leetcode-26-Remove-Duplicates-from-Sorted-Array/">Leetcode 26 Remove Duplicates from Sorted Array</a>
+      <a class="article-title" href="/2017/05/31/Leetcode-28-Implement-strStr/">Leetcode 28 Implement strStr()</a>
     </h1>
   
 
@@ -91,14 +91,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h3><h2 id="Remove-Duplicates-from-Sorted-Array"><a href="#Remove-Duplicates-from-Sorted-Array" class="headerlink" title="Remove Duplicates from Sorted Array"></a><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array/#/description" target="_blank" rel="external">Remove Duplicates from Sorted Array</a></h2><h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>也是简单题目，和27题差不多，去除有序数组中的相同元素，我采取了和27题相同的方法，用一个变量进行计数，用一个变量去记录当前的元素，找到一个不同的数字，就把值赋予当前计数变量所指定的位置nums[count]，并使其位置向后移动。直至结束。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>很少一次通过，没有修改没有变动的一次过。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public int removeDuplicates(int[] nums) &#123;</div><div class="line">    if(nums.length==0)&#123;</div><div class="line">        return 0;</div><div class="line">    &#125;</div><div class="line">    int remember = nums[0];</div><div class="line">    int count = 0;</div><div class="line">    nums[count] = nums[0];</div><div class="line">    for(int i = 1;i&lt;nums.length;i++)&#123;</div><div class="line">        if(remember != nums[i])&#123;</div><div class="line">            count++;</div><div class="line">            nums[count]=nums[i];</div><div class="line">            remember = nums[i];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return count+1;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>题目简单，类似上一题，算是巩固。<br>寻找相关题目继续一下。</p>
+        <h3 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h3><p><a href="https://leetcode.com/problems/implement-strstr/#/description" target="_blank" rel="external">Implement strStr()</a></p>
+<h2 id="发现了为什么字体变大，只要挨着-就会变成加粗模式"><a href="#发现了为什么字体变大，只要挨着-就会变成加粗模式" class="headerlink" title="发现了为什么字体变大，只要挨着 - - - 就会变成加粗模式"></a><em>发现了为什么字体变大，只要挨着 - - - 就会变成加粗模式</em></h2><h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>还是leetcode的简单题目，我的目的是先好好做简单题目，以前虽然中等困难的也做过一些，不过不少题目由于基础不扎实或者对于题目不够了解而导致做的效果很不好，因此先做好简单题目打好基础，当然同时也要巩固学习数据结构。<br>近几天的做题并没有什么经典的算法，都是凭借思路解决问题的题目。好了，说正题。今天的题目，是要实现一个常用方法，String类的方法indexOf ( String anotherstring ) ，即寻找一个字符串在另一个字符串中第一次出现的位置，若是没有则返回-1，有的话就返回位置索引。</p>
+<hr>
+<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><ul>
+<li>给了空的输入，这是leetcode一贯的作风，两个空的输入一定会有。    这时应当返回0.</li>
+<li>上一条可以归结为，只要第二个串的长度为0，那么结果就是0.</li>
+<li>可能出现第二个串长度大于第一个的情况，要进行处理。</li>
+<li>取子字符串时后，substring方法的参数相同取到的时空值，该方法取得的值为两个参数之间的值。</li>
+<li>在正常情况下，第一个字符串中符合条件的子串一共有len1-len2个。</li>
+</ul>
+<hr>
+<h3 id="心得吧"><a href="#心得吧" class="headerlink" title="心得吧"></a>心得吧</h3><p>一定要好好想清楚逻辑关系再进行代码编写，不然会出现碰到一个错误例子解决一个错误例子，最后导致代码又臭又长，效率底下，惨不忍睹。<br>要尽量简化代码，简便易懂的代码才是最好的。</p>
+<hr>
+<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">public int strStr(String haystack, String needle) &#123;</div><div class="line">    </div><div class="line">    int sLen = haystack.length();</div><div class="line">    //System.out.print(haystack.charAt(1));</div><div class="line">    //charAt()下标也是从零开始</div><div class="line">    int nLen = needle.length();</div><div class="line">    if(nLen==0)&#123;</div><div class="line">        //System.out.println(&quot;blank&quot;);</div><div class="line">        </div><div class="line">        return 0;</div><div class="line">    &#125;</div><div class="line">    if(sLen&lt;nLen)&#123;</div><div class="line">        return -1;</div><div class="line">    &#125;</div><div class="line">    int res = -1;</div><div class="line">    for(int i = 0;i&lt;sLen-nLen+1;i++)&#123;</div><div class="line">        //索引or下标都是从零开始</div><div class="line">        //以同样的下标获得的substring不会是当前字符，而是空字符串。</div><div class="line">        //System.out.println(haystack.substring(i,nLen+i));</div><div class="line">        if(haystack.substring(i,nLen+i).equals(needle))&#123;</div><div class="line">            res = i;</div><div class="line">            break;</div><div class="line">           // System.out.println(&quot;res  &quot;+res);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return res;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>接下来的日子大概挺忙的，日子不多，事情很多，要合理安排。每周末找合适时间复习本周题目。每次要让代码打到合适的运行时间。</p>
+<hr>
+<p>最后这是页脚吗</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://Dangzhx.github.io/2017/05/29/Leetcode-26-Remove-Duplicates-from-Sorted-Array/" data-id="cjcwztzad000itsw3us82324e" class="article-share-link">Share</a>
+      <a data-url="http://Dangzhx.github.io/2017/05/31/Leetcode-28-Implement-strStr/" data-id="cjde823aw000iv0w3nvp3r7v8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li></ul>
@@ -113,7 +127,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/22/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/24/">__('next') &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/22/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" href="/page/24/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -126,7 +140,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy  questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Swing/">Java Swing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swing-Graphics2D/">Swing Graphics2D</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/easy-questions-of-leetcode/">easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-Swing/">java Swing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-github/">study github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-record/">study record</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/等下就优化/">等下就优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件工程/">软件工程</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy  questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Swing/">Java Swing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-Ubuntu/">Linux Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swing-Graphics2D/">Swing Graphics2D</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/easy-questions-of-leetcode/">easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-Swing/">java Swing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-github/">study github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-record/">study record</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/等下就优化/">等下就优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件工程/">软件工程</a></li></ul>
     </div>
   </div>
 
@@ -136,7 +150,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 10px;">Easy  questions of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 13.33px;">Easy question of leetcode.</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 20px;">Easy questions of leetcode</a> <a href="/tags/Java-Swing/" style="font-size: 16.67px;">Java Swing</a> <a href="/tags/Swing-Graphics2D/" style="font-size: 10px;">Swing Graphics2D</a> <a href="/tags/easy-questions-of-leetcode/" style="font-size: 10px;">easy questions of leetcode</a> <a href="/tags/java-Swing/" style="font-size: 10px;">java Swing</a> <a href="/tags/study-github/" style="font-size: 10px;">study github</a> <a href="/tags/study-record/" style="font-size: 10px;">study record</a> <a href="/tags/等下就优化/" style="font-size: 10px;">等下就优化</a> <a href="/tags/软件工程/" style="font-size: 10px;">软件工程</a>
+      <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 10px;">Easy  questions of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 13.33px;">Easy question of leetcode.</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 20px;">Easy questions of leetcode</a> <a href="/tags/Java-Swing/" style="font-size: 16.67px;">Java Swing</a> <a href="/tags/Linux-Ubuntu/" style="font-size: 10px;">Linux Ubuntu</a> <a href="/tags/Swing-Graphics2D/" style="font-size: 10px;">Swing Graphics2D</a> <a href="/tags/easy-questions-of-leetcode/" style="font-size: 10px;">easy questions of leetcode</a> <a href="/tags/java-Swing/" style="font-size: 10px;">java Swing</a> <a href="/tags/study-github/" style="font-size: 10px;">study github</a> <a href="/tags/study-record/" style="font-size: 10px;">study record</a> <a href="/tags/等下就优化/" style="font-size: 10px;">等下就优化</a> <a href="/tags/软件工程/" style="font-size: 10px;">软件工程</a>
     </div>
   </div>
 
@@ -145,7 +159,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
     </div>
   </div>
 
@@ -158,6 +172,14 @@
       <ul>
         
           <li>
+            <a href="/2018/02/08/Linux-ubuntu-环境搭建/">Linux ubuntu 环环境搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/31/at-home2/">at home2</a>
+          </li>
+        
+          <li>
             <a href="/2018/01/20/at-home/">at home</a>
           </li>
         
@@ -167,14 +189,6 @@
         
           <li>
             <a href="/2017/12/10/Swing-4/">Swing(4)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/09/Swing-3/">Swing(3)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/07/Swing-2/">Swing(2)</a>
           </li>
         
       </ul>

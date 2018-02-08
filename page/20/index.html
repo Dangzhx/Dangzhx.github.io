@@ -69,10 +69,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Leetcode-35-Search-Insert-Position" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Leetcode-53-Maximum-Subarray" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/06/01/Leetcode-35-Search-Insert-Position/" class="article-date">
-  <time datetime="2017-06-01T03:48:43.000Z" itemprop="datePublished">2017-06-01</time>
+    <a href="/2017/06/03/Leetcode-53-Maximum-Subarray/" class="article-date">
+  <time datetime="2017-06-03T14:34:37.000Z" itemprop="datePublished">2017-06-03</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/01/Leetcode-35-Search-Insert-Position/">Leetcode 35 Search Insert Position</a>
+      <a class="article-title" href="/2017/06/03/Leetcode-53-Maximum-Subarray/">Leetcode 53 Maximum Subarray</a>
     </h1>
   
 
@@ -91,34 +91,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h3><h2 id="Search-Insert-Position"><a href="#Search-Insert-Position" class="headerlink" title="Search Insert Position"></a><a href="https://leetcode.com/problems/search-insert-position/#/description" target="_blank" rel="external">Search Insert Position</a></h2><h3 id="题目简析"><a href="#题目简析" class="headerlink" title="题目简析"></a>题目简析</h3><p>很简单的题目，给定一个有序数组和一个数字，找出该数字应该呆的位置。</p>
+        <h3 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h3><p><a href="https://leetcode.com/problems/maximum-subarray/#/description" target="_blank" rel="external">Maximum Subarray</a></p>
 <hr>
-<h3 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h3><ul>
-<li>虽然是很简单的题目，差点又犯罪，一定要想清楚逻辑，坚决不能按照错误例子一个一个解决。  </li>
-<li>我简单的进行遍历，得出结果，但是时间上比大部分人都要慢，采取的算法不合适。</li>
-<li>对，应该使用二分查找，才能更快的得到结果。</li>
-</ul>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>第一眼看到，我好像前不久做过相似的题目，应该是CVTE的笔试题目，今天回想，那时候应该是做错了，想得太简单了，再看一看感觉不怎么会做啊。<br>在一个数组中找和最大的子数组，这个应该是一个最优的问题，奈何不怎么会动态规划。<br><em>以一个标志记录子数组开头，看情况而改变开头的位置，如果能找到比较大的加和，那么就记录下来。</em><br>Java的最小值表示为Integer.MIN_VALUE.</p>
 <hr>
-<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3><p>没有用二分查找的，运行时间7ms.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line">    public int searchInsert(int[] nums, int target) &#123;</div><div class="line">        for(int i = 0;i&lt;nums.length;i++)&#123;</div><div class="line">            if(nums[i]&gt;=target)&#123;</div><div class="line">                return i;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return nums.length;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>用了二分查找的,运行时间还是7ms………………<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line">    public int searchInsert(int[] nums, int target) &#123;</div><div class="line">        int low = 0;</div><div class="line">        int high = nums.length;</div><div class="line">        </div><div class="line">        while(low&lt;high)&#123;</div><div class="line">            //mid的位置一定要确定好</div><div class="line">            int mid = low+ (high-low)/2;</div><div class="line">            if(target&gt;nums[mid])&#123;</div><div class="line">                low = mid+1;</div><div class="line">            &#125;</div><div class="line">            else&#123;</div><div class="line">                high = mid;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return low;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>可能是由于测试数据的原因，理论上应该是二分法要快一些。<br>以后这种题目尽量用二分法做吧。</p>
-<hr>
-<h3 id="题目来源-1"><a href="#题目来源-1" class="headerlink" title="题目来源"></a>题目来源</h3><p><a href="https://leetcode.com/problems/first-bad-version/#/description" target="_blank" rel="external">First Bad Version</a></p>
-<hr>
-<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>今天第二个题目，与上一题相关，同样是可以使用二分查找解决的问题，大体上差不多。<br>只要处理下第一个版本就坏掉的问题即可。</p>
-<hr>
-<h3 id="结果代码"><a href="#结果代码" class="headerlink" title="结果代码"></a>结果代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">public class Solution extends VersionControl &#123;</div><div class="line">    public int firstBadVersion(int n) &#123;</div><div class="line">         if(isBadVersion(1))</div><div class="line">        &#123;</div><div class="line">            return 1;</div><div class="line">        &#125;</div><div class="line">        int low = 1;</div><div class="line">        int high = n;</div><div class="line">       </div><div class="line">        while(low!=high-1)&#123;</div><div class="line">        	//这里出错，中位数的计算。</div><div class="line">            int mid = low + (high-low)/2;</div><div class="line">            if(isBadVersion(mid))&#123;</div><div class="line">                high = mid;</div><div class="line">            &#125;else&#123;</div><div class="line">                low = mid;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return high;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>巩固学习二分查找。</p>
-<hr>
-<p>听从建议，近几天我给这个博客添加一个评论系统。而且我会把同一天的题目先写到一篇博客中。之后进行归档。</p>
+<h3 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h3><p>借鉴了别人的方法，sum记录一下子数组从此位置开始的和，如果这个和小于0，那么这个开头的位置就可以改变了，因为加上以上个开头开始的和也只会让结果的和减小，并没有用。所以每当sum &lt; 0，就把之前的加和清空，sum重置为当前位置的数字。之后判断sum与max的大小，择优留下。（markdown的小于号好像有什么作用。）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line">    public int maxSubArray(int[] nums) &#123;</div><div class="line"></div><div class="line">        int max = Integer.MIN_VALUE;</div><div class="line">        int sum = 0;</div><div class="line">        for(int i = 0;i&lt;nums.length;i++)&#123;</div><div class="line">            if(sum&lt;0)&#123;</div><div class="line">                sum = nums[i];</div><div class="line">            &#125;else&#123;</div><div class="line">                sum +=nums[i];</div><div class="line">            &#125;</div><div class="line">            if(sum&gt;max)&#123;</div><div class="line">                max = sum;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return max;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这方法不错，我没想到。要是我的话可能暴力n方了，还是理智点学学人家的方法。之后再补充动态规划方法，先解决飞行棋的问题。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://Dangzhx.github.io/2017/06/01/Leetcode-35-Search-Insert-Position/" data-id="cjcwztza5000btsw3vu90gwbf" class="article-share-link">Share</a>
+      <a data-url="http://Dangzhx.github.io/2017/06/03/Leetcode-53-Maximum-Subarray/" data-id="cjde823b0000mv0w34ngzpqq5" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li></ul>
 
     </footer>
   </div>
@@ -130,7 +116,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/19/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="page-number current">20</span><a class="page-number" href="/page/21/">21</a><a class="page-number" href="/page/22/">22</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/21/">__('next') &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/19/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="page-number current">20</span><a class="page-number" href="/page/21/">21</a><a class="page-number" href="/page/22/">22</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" href="/page/21/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -143,7 +129,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy  questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Swing/">Java Swing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swing-Graphics2D/">Swing Graphics2D</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/easy-questions-of-leetcode/">easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-Swing/">java Swing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-github/">study github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-record/">study record</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/等下就优化/">等下就优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件工程/">软件工程</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy  questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Swing/">Java Swing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-Ubuntu/">Linux Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swing-Graphics2D/">Swing Graphics2D</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/easy-questions-of-leetcode/">easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-Swing/">java Swing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-github/">study github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-record/">study record</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/等下就优化/">等下就优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件工程/">软件工程</a></li></ul>
     </div>
   </div>
 
@@ -153,7 +139,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 10px;">Easy  questions of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 13.33px;">Easy question of leetcode.</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 20px;">Easy questions of leetcode</a> <a href="/tags/Java-Swing/" style="font-size: 16.67px;">Java Swing</a> <a href="/tags/Swing-Graphics2D/" style="font-size: 10px;">Swing Graphics2D</a> <a href="/tags/easy-questions-of-leetcode/" style="font-size: 10px;">easy questions of leetcode</a> <a href="/tags/java-Swing/" style="font-size: 10px;">java Swing</a> <a href="/tags/study-github/" style="font-size: 10px;">study github</a> <a href="/tags/study-record/" style="font-size: 10px;">study record</a> <a href="/tags/等下就优化/" style="font-size: 10px;">等下就优化</a> <a href="/tags/软件工程/" style="font-size: 10px;">软件工程</a>
+      <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 10px;">Easy  questions of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 13.33px;">Easy question of leetcode.</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 20px;">Easy questions of leetcode</a> <a href="/tags/Java-Swing/" style="font-size: 16.67px;">Java Swing</a> <a href="/tags/Linux-Ubuntu/" style="font-size: 10px;">Linux Ubuntu</a> <a href="/tags/Swing-Graphics2D/" style="font-size: 10px;">Swing Graphics2D</a> <a href="/tags/easy-questions-of-leetcode/" style="font-size: 10px;">easy questions of leetcode</a> <a href="/tags/java-Swing/" style="font-size: 10px;">java Swing</a> <a href="/tags/study-github/" style="font-size: 10px;">study github</a> <a href="/tags/study-record/" style="font-size: 10px;">study record</a> <a href="/tags/等下就优化/" style="font-size: 10px;">等下就优化</a> <a href="/tags/软件工程/" style="font-size: 10px;">软件工程</a>
     </div>
   </div>
 
@@ -162,7 +148,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
     </div>
   </div>
 
@@ -175,6 +161,14 @@
       <ul>
         
           <li>
+            <a href="/2018/02/08/Linux-ubuntu-环境搭建/">Linux ubuntu 环环境搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/31/at-home2/">at home2</a>
+          </li>
+        
+          <li>
             <a href="/2018/01/20/at-home/">at home</a>
           </li>
         
@@ -184,14 +178,6 @@
         
           <li>
             <a href="/2017/12/10/Swing-4/">Swing(4)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/09/Swing-3/">Swing(3)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/07/Swing-2/">Swing(2)</a>
           </li>
         
       </ul>

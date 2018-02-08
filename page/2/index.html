@@ -69,10 +69,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Swing-5" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-at-home2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/12/12/Swing-5/" class="article-date">
-  <time datetime="2017-12-12T01:16:50.000Z" itemprop="datePublished">2017-12-12</time>
+    <a href="/2018/01/31/at-home2/" class="article-date">
+  <time datetime="2018-01-31T03:04:15.000Z" itemprop="datePublished">2018-01-31</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/12/Swing-5/">Swing(5)</a>
+      <a class="article-title" href="/2018/01/31/at-home2/">at home2</a>
     </h1>
   
 
@@ -91,32 +91,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>继续布局管理概述</p>
-<hr>
-<p>问题可能是我的JFrame和Jpanel都是默认的流布局，所以点在Jpanel上面是顺序排列，位置不是我给定的坐标。</p>
+        <h3 id="第二章-算法分析"><a href="#第二章-算法分析" class="headerlink" title="第二章 算法分析"></a>第二章 算法分析</h3><p>仅需要常量空间并以线性时间运行的联机算法几乎都是完美的算法。<br>举了三个LogN（对数级别）的算法例子：</p>
 <ul>
-<li>把Frame和Panel都设置为无布局，这回panel的位置正确显示了，不过点还是没有。</li>
-<li>调试发现Jpanel构造时调用的paintComponent()方法并没有生效。</li>
+<li>对分查找</li>
+<li>欧几里得算法求最大公因数</li>
+<li>幂运算（内定义的函数名不要使用——会出现conflict built-in function什么的错误）</li>
 </ul>
-<p>一天没多大结果，就显示了jpanel。</p>
+<p>undefined reference to `WinMain@16’ 可能是没有找到main函数，拼写问题mian什么的。<br>代码要天天写，不然就会什么都忘掉。</p>
 <hr>
-<p>想想觉得应该是JFrame在创建时调用了paint的超类，其中也调用了JComponent的方法，这个应该只能是JFrame使用，我强行在Jpanel上使用好像不会太好，也并没有用。<br>仔细想想并没有必要使用Jpanel。就姑且都画到JFrame上吧。</p>
-<hr>
-<ul>
-<li>重载了Jpanel的paint方法，绘制城市是应该可行的。</li>
-<li>划了一条很粗的线，应该是对于900*900的整个面板来说cities的坐标都太小，所以导致比较集中。</li>
-<li>用错了方法，用了不是fromcenter的方法。写的时候要确保每一句都没问题再往下写。</li>
-<li>城市位置的表现ok了，接下来关联Jbutton的事件。</li>
-</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://Dangzhx.github.io/2017/12/12/Swing-5/" data-id="cjcwztzbq001ftsw3j4jeffzq" class="article-share-link">Share</a>
+      <a data-url="http://Dangzhx.github.io/2018/01/31/at-home2/" data-id="cjde823c10018v0w3ss078a3l" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Swing/">Java Swing</a></li></ul>
-
     </footer>
   </div>
   
@@ -127,7 +116,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/3/">__('next') &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" href="/page/3/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -140,7 +129,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy  questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Swing/">Java Swing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swing-Graphics2D/">Swing Graphics2D</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/easy-questions-of-leetcode/">easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-Swing/">java Swing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-github/">study github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-record/">study record</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/等下就优化/">等下就优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件工程/">软件工程</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy  questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Swing/">Java Swing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-Ubuntu/">Linux Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swing-Graphics2D/">Swing Graphics2D</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/easy-questions-of-leetcode/">easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-Swing/">java Swing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-github/">study github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-record/">study record</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/等下就优化/">等下就优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件工程/">软件工程</a></li></ul>
     </div>
   </div>
 
@@ -150,7 +139,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 10px;">Easy  questions of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 13.33px;">Easy question of leetcode.</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 20px;">Easy questions of leetcode</a> <a href="/tags/Java-Swing/" style="font-size: 16.67px;">Java Swing</a> <a href="/tags/Swing-Graphics2D/" style="font-size: 10px;">Swing Graphics2D</a> <a href="/tags/easy-questions-of-leetcode/" style="font-size: 10px;">easy questions of leetcode</a> <a href="/tags/java-Swing/" style="font-size: 10px;">java Swing</a> <a href="/tags/study-github/" style="font-size: 10px;">study github</a> <a href="/tags/study-record/" style="font-size: 10px;">study record</a> <a href="/tags/等下就优化/" style="font-size: 10px;">等下就优化</a> <a href="/tags/软件工程/" style="font-size: 10px;">软件工程</a>
+      <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 10px;">Easy  questions of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 13.33px;">Easy question of leetcode.</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 20px;">Easy questions of leetcode</a> <a href="/tags/Java-Swing/" style="font-size: 16.67px;">Java Swing</a> <a href="/tags/Linux-Ubuntu/" style="font-size: 10px;">Linux Ubuntu</a> <a href="/tags/Swing-Graphics2D/" style="font-size: 10px;">Swing Graphics2D</a> <a href="/tags/easy-questions-of-leetcode/" style="font-size: 10px;">easy questions of leetcode</a> <a href="/tags/java-Swing/" style="font-size: 10px;">java Swing</a> <a href="/tags/study-github/" style="font-size: 10px;">study github</a> <a href="/tags/study-record/" style="font-size: 10px;">study record</a> <a href="/tags/等下就优化/" style="font-size: 10px;">等下就优化</a> <a href="/tags/软件工程/" style="font-size: 10px;">软件工程</a>
     </div>
   </div>
 
@@ -159,7 +148,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
     </div>
   </div>
 
@@ -172,6 +161,14 @@
       <ul>
         
           <li>
+            <a href="/2018/02/08/Linux-ubuntu-环境搭建/">Linux ubuntu 环环境搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/31/at-home2/">at home2</a>
+          </li>
+        
+          <li>
             <a href="/2018/01/20/at-home/">at home</a>
           </li>
         
@@ -181,14 +178,6 @@
         
           <li>
             <a href="/2017/12/10/Swing-4/">Swing(4)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/09/Swing-3/">Swing(3)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/07/Swing-2/">Swing(2)</a>
           </li>
         
       </ul>

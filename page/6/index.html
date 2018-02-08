@@ -69,10 +69,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Swing-1" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Swing-3" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/12/06/Swing-1/" class="article-date">
-  <time datetime="2017-12-06T07:37:26.000Z" itemprop="datePublished">2017-12-06</time>
+    <a href="/2017/12/09/Swing-3/" class="article-date">
+  <time datetime="2017-12-09T06:03:00.000Z" itemprop="datePublished">2017-12-09</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/06/Swing-1/">Swing(1)</a>
+      <a class="article-title" href="/2017/12/09/Swing-3/">Swing(3)</a>
     </h1>
   
 
@@ -91,49 +91,49 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>对于java Swing的东西一直没有好好理解，最近在看C primer plus 感觉确实是太多东西忘了，没掌握好，很基础却很神奇。</p>
-<p>考研这段时间，终究还是学会了如何看书，或者想起了如何看书。</p>
-<p>现在好好学习一下java Swing，过程小作记录，学这个主要为了做工程设计，顺便巩固下java，UI还是很常用的。<br>(ps:markdown有点忘了)</p>
+        <p>学习Swing第三次，今天主要是事件处理。</p>
 <hr>
-<h3 id="先对各个遇到的类简介一下。"><a href="#先对各个遇到的类简介一下。" class="headerlink" title="先对各个遇到的类简介一下。"></a>先对各个遇到的类简介一下。</h3><hr>
 <ul>
-<li>JFrame：顶层窗口，框架。从超类中继承了很多有用的方法。组件最初是可见的，但是JFrame这样的顶层组件不是。<br>例如：</li>
-</ul>
-<ul>
-<li>setVisible(boolean b);</li>
-<li>setSize(); 一般写到构造方法中。</li>
-<li>setLocationByPlatform();设置下次出现的默认位置,应该是可以记忆上次用户关闭时窗口所在位置，我这里只能编译，所以每次都是默认位置。</li>
-<li>setIconImage(img);</li>
-</ul>
-<p><em>还有很多方法，需要就查文档或者书，总有有用的</em></p>
-<hr>
-<hr>
-<p>JComponent：组件，可以自行绘制定义，最后添加到JFrame中</p>
-<ul>
-<li>使用时覆盖调paintComponent().该方法有一个Graphics类型参数，可以各种定义修改。</li>
-<li>需要定义组件大小、内容、位置（组件的位置，是相对于容器）。</li>
-<li>大小要覆盖getPreferredSize()方法。</li>
-<li>pack();调整窗口大小使其适合组件大小。</li>
+<li>事件对象派生于java.util.EventObject类，有ActionEvent和WindowEvent子类。</li>
+<li>概要：1.监听器，2.事件源，3.事件源在事件发生时将事件对象传递给所有注册过的监听器，4.监听器利用事件对象中的信息对事件作出相应。</li>
+<li>例如：点击按钮会调用所有监听器的actionPerformed()方法。</li>
+<li>1.创建事件源如：Button</li>
+<li>2.创建监听器：buttonActionListener.（在构造方法中进行不同的操作）</li>
+<li>3.实现重写监听器中的actionPerformed(ActionEvent event).</li>
+<li>4.将事件源和监听器进行联系，之后事件发生时，就会进行actionPerformed()中实现的的相关操作。（内部类访问外部类的区域）</li>
+<li>解释型语言，代码先后顺序没什么要求。</li>
+<li>建议使用内部类，将actionListener作为Frame的内部类，可以对Frame中的panel进行操作。</li>
 </ul>
 <hr>
 <hr>
-<h2 id="JPanel：面板，组件容器。可以在其上进行绘制，可能用得到。"><a href="#JPanel：面板，组件容器。可以在其上进行绘制，可能用得到。" class="headerlink" title="JPanel：面板，组件容器。可以在其上进行绘制，可能用得到。"></a>JPanel：面板，组件容器。可以在其上进行绘制，可能用得到。</h2><hr>
-<p>确定合适的大小，Toolkit.getDefaultToolkit();  Demension对象，Demension即尺寸，规格的意思。</p>
 <ul>
-<li>所有Swing组件必须由事件分派线程进行配置。这个需要理解一下。（可能之前我写的界面有些问题就是因为没有考虑这个）<br>对于这个我目前的理解是主线程结束并不能让UI界面一起结束了，所以需要一个线程保持运行并对其进行管理。</li>
-<li>每个组件都是一个类，有自己的方法与控制，可以添加到框架中，并不是与框架一起，而是别的对象。实现要对每个组件为自己绘制并且要知道覆盖哪些方法。</li>
+<li>代码可以尽量简化，毕竟尽量减少重复代码。</li>
+<li>关于内部类、匿名类等等可以之后再说。（可以看的明白，不会用）</li>
+<li><p>遵照要求，尽量使用内部类使操作简便，使用匿名类使代码简洁。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">frame.addWindowListener(new </div><div class="line">	WindowAdapter()&#123;</div><div class="line">		public void windowClosing(WindowEvent e)&#123;</div><div class="line">			if(user agrees)</div><div class="line">				System.exit(0);</div><div class="line">		&#125;</div><div class="line">	&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>定义了一个WindowAdapter的无名类</p>
+</li>
+<li>重载了其中的windowClosing方法，关闭时征求用户同意</li>
+<li>其中包含了其余的不需要实现的方法，它们不需要进行任何工作</li>
+<li>创建了该类的对象new ，这个对象也没有名字</li>
+<li>最后将该对象传递给了frame调用的方法addWindowListerer()<br>这样就完成了一个匿名类的监听器。</li>
+</ul>
+<hr>
+<p>动作Action</p>
+<ul>
+<li>将整个Action的名称，图标以及动作要执行需要的参数封装起来，将整个Action作为参数来对组件进行构造。</li>
 <li></li>
 </ul>
-<hr>
-<h3 id="ok第一天就这么多吧。"><a href="#ok第一天就这么多吧。" class="headerlink" title="ok第一天就这么多吧。"></a>ok第一天就这么多吧。</h3>
+<h2 id="要是一开始就一点一点学，也不会有这种到处需要补充的时候。"><a href="#要是一开始就一点一点学，也不会有这种到处需要补充的时候。" class="headerlink" title="要是一开始就一点一点学，也不会有这种到处需要补充的时候。"></a>要是一开始就一点一点学，也不会有这种到处需要补充的时候。</h2><hr>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://Dangzhx.github.io/2017/12/06/Swing-1/" data-id="cjcwztzat000stsw3fz7x30k4" class="article-share-link">Share</a>
+      <a data-url="http://Dangzhx.github.io/2017/12/09/Swing-3/" data-id="cjde823dh0020v0w3m3tyakjf" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-Swing/">java Swing</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Swing/">Java Swing</a></li></ul>
 
     </footer>
   </div>
@@ -145,7 +145,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/5/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/7/">__('next') &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/5/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" href="/page/7/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -158,7 +158,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy  questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Swing/">Java Swing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swing-Graphics2D/">Swing Graphics2D</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/easy-questions-of-leetcode/">easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-Swing/">java Swing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-github/">study github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-record/">study record</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/等下就优化/">等下就优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件工程/">软件工程</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy  questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-question-of-leetcode/">Easy question of leetcode.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Easy-questions-of-leetcode/">Easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Swing/">Java Swing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-Ubuntu/">Linux Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swing-Graphics2D/">Swing Graphics2D</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/easy-questions-of-leetcode/">easy questions of leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-Swing/">java Swing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-github/">study github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study-record/">study record</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/等下就优化/">等下就优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件工程/">软件工程</a></li></ul>
     </div>
   </div>
 
@@ -168,7 +168,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 10px;">Easy  questions of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 13.33px;">Easy question of leetcode.</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 20px;">Easy questions of leetcode</a> <a href="/tags/Java-Swing/" style="font-size: 16.67px;">Java Swing</a> <a href="/tags/Swing-Graphics2D/" style="font-size: 10px;">Swing Graphics2D</a> <a href="/tags/easy-questions-of-leetcode/" style="font-size: 10px;">easy questions of leetcode</a> <a href="/tags/java-Swing/" style="font-size: 10px;">java Swing</a> <a href="/tags/study-github/" style="font-size: 10px;">study github</a> <a href="/tags/study-record/" style="font-size: 10px;">study record</a> <a href="/tags/等下就优化/" style="font-size: 10px;">等下就优化</a> <a href="/tags/软件工程/" style="font-size: 10px;">软件工程</a>
+      <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 10px;">Easy  questions of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 10px;">Easy question of leetcode</a> <a href="/tags/Easy-question-of-leetcode/" style="font-size: 13.33px;">Easy question of leetcode.</a> <a href="/tags/Easy-questions-of-leetcode/" style="font-size: 20px;">Easy questions of leetcode</a> <a href="/tags/Java-Swing/" style="font-size: 16.67px;">Java Swing</a> <a href="/tags/Linux-Ubuntu/" style="font-size: 10px;">Linux Ubuntu</a> <a href="/tags/Swing-Graphics2D/" style="font-size: 10px;">Swing Graphics2D</a> <a href="/tags/easy-questions-of-leetcode/" style="font-size: 10px;">easy questions of leetcode</a> <a href="/tags/java-Swing/" style="font-size: 10px;">java Swing</a> <a href="/tags/study-github/" style="font-size: 10px;">study github</a> <a href="/tags/study-record/" style="font-size: 10px;">study record</a> <a href="/tags/等下就优化/" style="font-size: 10px;">等下就优化</a> <a href="/tags/软件工程/" style="font-size: 10px;">软件工程</a>
     </div>
   </div>
 
@@ -177,7 +177,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li></ul>
     </div>
   </div>
 
@@ -190,6 +190,14 @@
       <ul>
         
           <li>
+            <a href="/2018/02/08/Linux-ubuntu-环境搭建/">Linux ubuntu 环环境搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/31/at-home2/">at home2</a>
+          </li>
+        
+          <li>
             <a href="/2018/01/20/at-home/">at home</a>
           </li>
         
@@ -199,14 +207,6 @@
         
           <li>
             <a href="/2017/12/10/Swing-4/">Swing(4)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/09/Swing-3/">Swing(3)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/07/Swing-2/">Swing(2)</a>
           </li>
         
       </ul>
